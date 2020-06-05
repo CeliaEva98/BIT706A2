@@ -12,5 +12,14 @@ namespace Home
         String customerFirstName;
         String customerLastName;
         int customerContactNum;
+
+        public Customer(int customerIDNum, string firstName, string lastName, int contactNum)
+        {
+            customerID = customerIDNum;
+            customerFirstName = firstName;
+            customerLastName = lastName;
+            customerContactNum = contactNum;
+        }  
     }
+    
 }

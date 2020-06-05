@@ -8,8 +8,16 @@ namespace Home
 {
     class Controller
     {
+        int nextCustomerID = 1;
+        int customerID;
+
         public List<Customer> CustomersList = new List<Customer>();
 
+        public void setCustomerID()
+        {
+            customerID = nextCustomerID;
+            nextCustomerID++;
+        }
 
         public void CreateCustomer(String firstName, String lastName, int contactNumber)
         {
