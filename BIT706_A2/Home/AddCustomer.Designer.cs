@@ -38,6 +38,7 @@
             this.labelAddNew = new System.Windows.Forms.Label();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonAddNew = new System.Windows.Forms.Button();
+            this.labelError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -132,6 +133,16 @@
             this.buttonAddNew.TabIndex = 11;
             this.buttonAddNew.Text = "Add Customer";
             this.buttonAddNew.UseVisualStyleBackColor = true;
+            this.buttonAddNew.Click += new System.EventHandler(this.buttonAddNew_Click);
+            // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(351, 179);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(46, 17);
+            this.labelError.TabIndex = 12;
+            this.labelError.Text = "label2";
             // 
             // AddCustomer
             // 
@@ -139,6 +150,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(800, 662);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonAddNew);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.labelAddNew);
@@ -168,5 +180,6 @@
         private System.Windows.Forms.Label labelAddNew;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonAddNew;
+        private System.Windows.Forms.Label labelError;
     }
 }

@@ -70,6 +70,7 @@
             this.buttonDelete.TabIndex = 3;
             this.buttonDelete.Text = "Delete Selected Customer";
             this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonAdd
             // 
@@ -89,7 +90,7 @@
             this.buttonSearch.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSearch.Location = new System.Drawing.Point(584, 127);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(176, 51);
+            this.buttonSearch.Size = new System.Drawing.Size(176, 78);
             this.buttonSearch.TabIndex = 5;
             this.buttonSearch.Text = "Find Customer";
             this.buttonSearch.UseVisualStyleBackColor = false;

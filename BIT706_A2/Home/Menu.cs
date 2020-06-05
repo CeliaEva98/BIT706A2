@@ -15,6 +15,7 @@ namespace Home
         Controller control = new Controller();
         string enteredIDString;
         int enteredID;
+        Boolean customerFound = false;
 
         public Menu()
         {
@@ -50,9 +51,19 @@ namespace Home
                     enteredID = Int32.Parse(enteredIDString);
                     customerDisplay = control.CustomerInfoDisplay(enteredID);
                     labelDisplay.Text = customerDisplay;
+                    customerFound = true;
                 }
             }
 
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            if (customerFound == true)
+            {
+                int customerID = Int32.Parse(textBoxID.Text);
+                control.DeleteCustomer(customerID);
+            }
         }
     }
 }

@@ -13,15 +13,18 @@ namespace Home
 
         public List<Customer> CustomersList = new List<Customer>();
 
-        public void setCustomerID()
+        public int setCustomerID()
         {
             customerID = nextCustomerID;
-            nextCustomerID++; 
+            nextCustomerID++;
+            return customerID;
         }
 
-        public void CreateCustomer(String firstName, String lastName, int contactNumber)
+        public int CreateCustomer(String firstName, String lastName, int contactNumber)
         {
-
+            Customer newCust = new Customer(setCustomerID(), firstName, lastName, contactNumber);
+            CustomersList.Add(newCust);
+            return customerID;
         }
 
         public void DeleteCustomer(int customerNumber)
