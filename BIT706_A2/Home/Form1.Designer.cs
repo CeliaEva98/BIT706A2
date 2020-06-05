@@ -28,7 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
+            this.buttonManage = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Perpetua Titling MT", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(84, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(189, 33);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "LLRT Bank";
+            // 
+            // buttonManage
+            // 
+            this.buttonManage.BackColor = System.Drawing.Color.LightGray;
+            this.buttonManage.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonManage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonManage.Location = new System.Drawing.Point(327, 258);
+            this.buttonManage.Name = "buttonManage";
+            this.buttonManage.Size = new System.Drawing.Size(170, 119);
+            this.buttonManage.TabIndex = 1;
+            this.buttonManage.Text = "Manage Customers";
+            this.buttonManage.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
@@ -36,13 +61,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(800, 635);
+            this.Controls.Add(this.buttonManage);
+            this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonManage;
     }
 }
 
