@@ -14,8 +14,11 @@ namespace Home
     {
         public Menu()
         {
+            Controller control = new Controller();
+
             InitializeComponent();
             labelDisplay.Text = "";
+
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
