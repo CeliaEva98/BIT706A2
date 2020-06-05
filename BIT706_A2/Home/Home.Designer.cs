@@ -54,8 +54,9 @@
             this.buttonManage.TabIndex = 1;
             this.buttonManage.Text = "Manage Customers";
             this.buttonManage.UseVisualStyleBackColor = false;
+            this.buttonManage.Click += new System.EventHandler(this.buttonManage_Click);
             // 
-            // Form1
+            // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -63,7 +64,7 @@
             this.ClientSize = new System.Drawing.Size(800, 635);
             this.Controls.Add(this.buttonManage);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
+            this.Name = "Home";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();

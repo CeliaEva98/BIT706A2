@@ -81,6 +81,7 @@
             this.buttonAdd.TabIndex = 4;
             this.buttonAdd.Text = "Add New Customer";
             this.buttonAdd.UseVisualStyleBackColor = false;
+            this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
             // buttonSearch
             // 

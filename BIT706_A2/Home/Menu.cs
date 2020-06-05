@@ -15,6 +15,14 @@ namespace Home
         public Menu()
         {
             InitializeComponent();
+            labelDisplay.Text = "";
+        }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddCustomer addNew = new AddCustomer();
+            addNew.Show();
         }
     }
 }

@@ -16,5 +16,12 @@ namespace Home
         {
             InitializeComponent();
         }
+
+        private void buttonManage_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu mainMenu = new Menu();
+            mainMenu.Show();
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace Home
         public void setCustomerID()
         {
             customerID = nextCustomerID;
-            nextCustomerID++;
+            nextCustomerID++; 
         }
 
         public void CreateCustomer(String firstName, String lastName, int contactNumber)

@@ -73,6 +73,7 @@
             this.buttonCancel.TabIndex = 19;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // labelEdit
             // 
