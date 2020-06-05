@@ -19,6 +19,8 @@ namespace Home
             nextCustomerID++; 
         }
 
+        public Customer FindCustomerByID()
+
         public void CreateCustomer(String firstName, String lastName, int contactNumber)
         {
 

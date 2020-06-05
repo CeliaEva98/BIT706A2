@@ -34,7 +34,7 @@
             this.buttonAdd = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxID = new System.Windows.Forms.TextBox();
             this.labelDisplay = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -93,6 +93,7 @@
             this.buttonSearch.TabIndex = 5;
             this.buttonSearch.Text = "Find Customer";
             this.buttonSearch.UseVisualStyleBackColor = false;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // label2
             // 
@@ -104,12 +105,12 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Customer ID Number:";
             // 
-            // textBox1
+            // textBoxID
             // 
-            this.textBox1.Location = new System.Drawing.Point(297, 144);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(259, 22);
-            this.textBox1.TabIndex = 7;
+            this.textBoxID.Location = new System.Drawing.Point(297, 144);
+            this.textBoxID.Name = "textBoxID";
+            this.textBoxID.Size = new System.Drawing.Size(259, 22);
+            this.textBoxID.TabIndex = 7;
             // 
             // labelDisplay
             // 
@@ -127,7 +128,7 @@
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(800, 627);
             this.Controls.Add(this.labelDisplay);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.buttonAdd);
@@ -149,7 +150,7 @@
         private System.Windows.Forms.Button buttonAdd;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label labelDisplay;
     }
 }

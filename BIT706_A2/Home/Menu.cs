@@ -12,10 +12,12 @@ namespace Home
 {
     public partial class Menu : Form
     {
+        Controller control = new Controller();
+        string enteredIDString;
+        int enteredID;
+
         public Menu()
         {
-            Controller control = new Controller();
-
             InitializeComponent();
             labelDisplay.Text = "";
 
@@ -26,6 +28,28 @@ namespace Home
             this.Hide();
             AddCustomer addNew = new AddCustomer();
             addNew.Show();
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            if (control.CustomersList.Count == 0)
+            {
+                labelDisplay.Text = "No customers in database. Please add customers first";
+            }
+            else if (control.CustomersList.Count != 0)
+            {
+                enteredIDString = textBoxID.Text;
+                if (enteredIDString.All(Char.IsLetter))
+                {
+                    textBoxID.Text = "";
+                    labelDisplay.Text = "Please enter a valid ID. Letters are not permitted.";
+                }
+                else
+                {
+                    enteredID = Int32.Parse(enteredIDString);
+                }
+            }
+
         }
     }
 }
