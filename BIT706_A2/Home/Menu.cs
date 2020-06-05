@@ -32,6 +32,7 @@ namespace Home
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
+            string customerDisplay = "";
             if (control.CustomersList.Count == 0)
             {
                 labelDisplay.Text = "No customers in database. Please add customers first";
@@ -47,6 +48,8 @@ namespace Home
                 else
                 {
                     enteredID = Int32.Parse(enteredIDString);
+                    customerDisplay = control.CustomerInfoDisplay(enteredID);
+                    labelDisplay.Text = customerDisplay;
                 }
             }
 

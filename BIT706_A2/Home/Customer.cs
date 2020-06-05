@@ -20,6 +20,11 @@ namespace Home
             customerLastName = lastName;
             customerContactNum = contactNum;
         }  
+
+        public int ID { get => customerID; set => customerID = value; }
+        public string firstName { get => customerFirstName; set => customerFirstName = value; }
+        public string lastName { get => customerLastName; set => customerLastName = value; }
+        public int contactNum { get => customerContactNum; set => customerContactNum = value; }
     }
     
 }

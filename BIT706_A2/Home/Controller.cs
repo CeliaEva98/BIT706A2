@@ -19,8 +19,6 @@ namespace Home
             nextCustomerID++; 
         }
 
-        public Customer FindCustomerByID()
-
         public void CreateCustomer(String firstName, String lastName, int contactNumber)
         {
 
@@ -36,9 +34,49 @@ namespace Home
 
         }
 
-        public void FindCustomer(int customerNumber)
+        public Customer FindCustomer(int customerNumber)
         {
+            foreach(Customer cust in CustomersList)
+            {
+                if (cust.ID == customerID)
+                {
+                    return cust;
+                }
+                
+            }
+            return null;
+        }
 
+        public string CustomerInfoDisplay(int customerNumber)
+        {
+            string displayString;
+
+            int customerID;
+            string customerFirstName = "";
+            string customerLastName = "";
+            int customerContact = 0;
+
+            Customer result = FindCustomer(customerNumber);
+            if (result == null)
+            {
+                displayString = "No customer found with the entered ID. Please try again.";
+            }
+            else
+            {
+                customerID = customerNumber;
+
+                foreach(Customer cust in CustomersList) {
+                    if (cust.ID == customerID)
+                    {
+                        customerFirstName = cust.firstName;
+                        customerLastName = cust.lastName;
+                        customerContact = cust.contactNum;
+                    }
+                }
+                displayString = "ID Number: " + customerID.ToString() + "\n First Name: " + customerFirstName
+                    + "\n Last Name: " + customerLastName + "\n Contact Number: " + customerContact.ToString();
+            }
+            return displayString;
         }
     }
 }
