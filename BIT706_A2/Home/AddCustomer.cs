@@ -49,7 +49,7 @@ namespace Home
             else
             {
                 labelError.Text = "Please enter a valid last name";
-                textBoxLastName = "";
+                textBoxLastName.Text = "";
                 lastNameCorrect = false;
             }
             if (textBoxContact.Text != null)
@@ -86,6 +86,13 @@ namespace Home
                     labelError.Text = "Customer could not be added. Please try again!";
                 }
             }
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu newMenu = new Menu();
+            newMenu.Show();
         }
     }
 }

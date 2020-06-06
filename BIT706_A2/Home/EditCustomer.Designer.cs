@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonAddNew = new System.Windows.Forms.Button();
+            this.buttonSaveChanges = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.labelEdit = new System.Windows.Forms.Label();
             this.textBoxContact = new System.Windows.Forms.TextBox();
@@ -53,15 +53,15 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "LLRT Bank";
             // 
-            // buttonAddNew
+            // buttonSaveChanges
             // 
-            this.buttonAddNew.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddNew.Location = new System.Drawing.Point(406, 518);
-            this.buttonAddNew.Name = "buttonAddNew";
-            this.buttonAddNew.Size = new System.Drawing.Size(273, 57);
-            this.buttonAddNew.TabIndex = 20;
-            this.buttonAddNew.Text = "Add Customer";
-            this.buttonAddNew.UseVisualStyleBackColor = true;
+            this.buttonSaveChanges.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSaveChanges.Location = new System.Drawing.Point(406, 518);
+            this.buttonSaveChanges.Name = "buttonSaveChanges";
+            this.buttonSaveChanges.Size = new System.Drawing.Size(273, 57);
+            this.buttonSaveChanges.TabIndex = 20;
+            this.buttonSaveChanges.Text = "Save Changes";
+            this.buttonSaveChanges.UseVisualStyleBackColor = true;
             // 
             // buttonCancel
             // 
@@ -164,7 +164,7 @@
             this.ClientSize = new System.Drawing.Size(800, 711);
             this.Controls.Add(this.labelIDNum);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.buttonAddNew);
+            this.Controls.Add(this.buttonSaveChanges);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.labelEdit);
             this.Controls.Add(this.textBoxContact);
@@ -184,7 +184,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button buttonAddNew;
+        private System.Windows.Forms.Button buttonSaveChanges;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Label labelEdit;
         private System.Windows.Forms.TextBox textBoxContact;

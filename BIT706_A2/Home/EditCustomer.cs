@@ -14,8 +14,29 @@ namespace Home
     {
         public EditCustomer()
         {
+            Controller control = new Controller();
             InitializeComponent();
+            
+        }
 
+        public void setLabelText(string labelText)
+        {
+            labelIDNum.Text = labelText;
+        }
+
+        public void setFirstName(string custFirstName)
+        {
+            textBoxFirstName.Text = custFirstName;
+        }
+
+        public void setLastName(string custLastName)
+        {
+            textBoxLastName.Text = custLastName;
+        }
+
+        public void setContactNum(int custContactNum)
+        {
+            textBoxContact.Text = custContactNum.ToString();
         }
 
         private void label2_Click(object sender, EventArgs e)

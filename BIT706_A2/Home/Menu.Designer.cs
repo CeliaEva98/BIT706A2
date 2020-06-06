@@ -59,6 +59,7 @@
             this.buttonEdit.TabIndex = 2;
             this.buttonEdit.Text = "Edit Selected Customer";
             this.buttonEdit.UseVisualStyleBackColor = false;
+            this.buttonEdit.Click += new System.EventHandler(this.buttonEdit_Click);
             // 
             // buttonDelete
             // 
