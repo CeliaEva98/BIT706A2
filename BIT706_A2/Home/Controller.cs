@@ -54,7 +54,7 @@ namespace Home
 
         public void UpdateCustomerDetails(int customerNumber, string firstName, string lastName, int contactNumber)
         {
-            foreach (Customer cust in CustomersList)
+            foreach (Customer cust in CustomersList.ToList())
             {
                 if (cust.ID == customerNumber)
                 {
@@ -70,9 +70,13 @@ namespace Home
         {
             foreach(Customer cust in CustomersList)
             {
-                if (cust.ID == customerID)
+                if (cust.ID == customerNumber)
                 {
                     return cust;
+                }
+                else
+                {
+                    return null;
                 }
                 
             }
@@ -130,6 +134,10 @@ namespace Home
             Customer result = FindCustomer(customerNumber);
             if (result == null)
             {
+                foreach(Customer cust in CustomersList)
+                {
+                    Console.WriteLine(cust.ID);
+                }
                 displayString = "No customer found with the entered ID. Please try again.";
             }
             else

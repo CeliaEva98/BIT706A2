@@ -50,5 +50,10 @@ namespace Home
             Menu mainMenu = new Menu();
             mainMenu.Show();
         }
+
+        private void buttonSaveChanges_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
