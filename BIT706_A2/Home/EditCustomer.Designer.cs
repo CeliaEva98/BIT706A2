@@ -40,6 +40,7 @@
             this.labelFirstName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.labelIDNum = new System.Windows.Forms.Label();
+            this.labelUserMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -157,12 +158,22 @@
             this.labelIDNum.TabIndex = 22;
             this.labelIDNum.Text = "label3";
             // 
+            // labelUserMessage
+            // 
+            this.labelUserMessage.AutoSize = true;
+            this.labelUserMessage.Location = new System.Drawing.Point(362, 204);
+            this.labelUserMessage.Name = "labelUserMessage";
+            this.labelUserMessage.Size = new System.Drawing.Size(46, 17);
+            this.labelUserMessage.TabIndex = 23;
+            this.labelUserMessage.Text = "label3";
+            // 
             // EditCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(800, 711);
+            this.Controls.Add(this.labelUserMessage);
             this.Controls.Add(this.labelIDNum);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonSaveChanges);
@@ -196,5 +207,6 @@
         private System.Windows.Forms.Label labelFirstName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelIDNum;
+        private System.Windows.Forms.Label labelUserMessage;
     }
 }

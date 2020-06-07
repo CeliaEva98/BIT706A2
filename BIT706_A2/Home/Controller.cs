@@ -45,11 +45,7 @@ namespace Home
             newEdit.setLastName(GetLastName(customerNumber));
             newEdit.setContactNum(GetContactNumber(customerNumber));
 
-            string firstName = GetFirstName(customerNumber);
-            string lastName = GetLastName(customerNumber);
-            int contactNumber = GetContactNumber(customerNumber);
-
-            UpdateCustomerDetails(customerNumber, firstName, lastName, contactNumber);
+           
         }
 
         public void UpdateCustomerDetails(int customerNumber, string firstName, string lastName, int contactNumber)
@@ -74,12 +70,11 @@ namespace Home
                 {
                     return cust;
                 }
-                else
-                {
-                    return null;
-                }
+                
+                
                 
             }
+            
             return null;
         }
 

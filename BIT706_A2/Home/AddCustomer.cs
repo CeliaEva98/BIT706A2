@@ -30,34 +30,55 @@ namespace Home
             Boolean lastNameCorrect = false;
             Boolean contactNumberCorrect = false;
 
-            if (textBoxFirstName.Text != null)
+            if (textBoxFirstName.Text != null && textBoxLastName.Text != "")
             {
-                firstName = textBoxFirstName.Text;
-                firstNameCorrect = true;
+                if (textBoxFirstName.Text.Any(Char.IsNumber)) 
+                {
+                    labelError.Text = "INVALID ENTRIES. Invalid details cleared. Please try again!";
+                    textBoxFirstName.Text = "";
+                }
+                else
+                {
+                    firstName = textBoxFirstName.Text;
+                    firstNameCorrect = true;
+                }
             }
             else
             {
-                labelError.Text = "Please enter a valid first name";
+                labelError.Text = "INVALID ENTRIES. Invalid details cleared. Please try again!";
                 textBoxFirstName.Text = "";
                 firstNameCorrect = false;
             }
-            if (textBoxLastName.Text != null)
+
+
+            if (textBoxLastName.Text != null && textBoxLastName.Text != "")
             {
-                lastName = textBoxLastName.Text;
-                lastNameCorrect = true;
+                if (textBoxLastName.Text.All(Char.IsLetter) != true)
+                {
+                    labelError.Text = "INVALID ENTRIES. Invalid details cleared. Please try again!";
+                    textBoxLastName.Text = "";
+                }
+                else
+                {
+                    lastName = textBoxLastName.Text;
+                    lastNameCorrect = true;
+                } 
             }
             else
             {
-                labelError.Text = "Please enter a valid last name";
+                labelError.Text = "INVALID ENTRIES. Invalid details cleared. Please try again!";
                 textBoxLastName.Text = "";
                 lastNameCorrect = false;
             }
-            if (textBoxContact.Text != null)
+
+
+            if (textBoxContact.Text != null && textBoxContact.Text != "")
             {
                 contactNumberString = textBoxContact.Text;
                 if (contactNumberString.Any(Char.IsLetter))
                 {
-                    labelError.Text = "Please enter a valid contact number. Letters are not permitted!";
+                    labelError.Text = "INVALID ENTRIES. Invalid details cleared. Please try again!";
+                    textBoxContact.Text = "";
                 }
                 else
                 {
@@ -67,7 +88,7 @@ namespace Home
             }
             else
             {
-                labelError.Text = "Please enter a valid contact number.";
+                labelError.Text = "INVALID ENTRIES. Invalid details cleared. Please try again!";
                 textBoxContact.Text = "";
                 contactNumberCorrect = false;
             }

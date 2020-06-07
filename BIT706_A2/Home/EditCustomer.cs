@@ -12,10 +12,12 @@ namespace Home
 {
     public partial class EditCustomer : Form
     {
+        Controller control = new Controller();
         public EditCustomer()
         {
-            Controller control = new Controller();
+            
             InitializeComponent();
+            labelUserMessage.Text = "";
             
         }
 
@@ -53,7 +55,31 @@ namespace Home
 
         private void buttonSaveChanges_Click(object sender, EventArgs e)
         {
+            int customerID = Int32.Parse(labelIDNum.Text);
+            string customerFirstName = textBoxFirstName.Text;
+            string customerLastName = textBoxLastName.Text;
+            int customerContactNum = Int32.Parse(textBoxContact.Text);
 
+            if (textBoxContact.Text.All(Char.IsNumber) != true)
+            {
+                labelUserMessage.Text = "Please enter a valid contact number. Letters are not permitted.";
+            }
+            else if (textBoxFirstName.Text.All(Char.IsLetter) != true)
+            {
+                labelUserMessage.Text = "Please enter a valid first name. Numbers are not permitted.";
+            }
+            else if (textBoxLastName.Text.All(Char.IsLetter) != true)
+            {
+                labelUserMessage.Text = "Please enter a valid last name. Numbers are not permitted.";
+            }
+            else
+            {
+                control.UpdateCustomerDetails(customerID, customerFirstName, customerLastName, customerContactNum);
+                labelUserMessage.Text = "Customer details successfully updated!";
+            }
+            
+
+            
         }
     }
 }

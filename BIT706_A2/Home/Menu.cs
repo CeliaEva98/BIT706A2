@@ -43,7 +43,7 @@ namespace Home
             else if (Controller.CustomersList.Count != 0)
             {
                 enteredIDString = textBoxID.Text;
-                if (enteredIDString.All(Char.IsLetter))
+                if (enteredIDString.All(Char.IsNumber) != true)
                 {
                     textBoxID.Text = "";
                     labelDisplay.Text = "Please enter a valid ID. Letters are not permitted.";
