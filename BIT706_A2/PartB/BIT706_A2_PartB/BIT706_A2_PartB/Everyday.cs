@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BIT706_A2_PartB
 {
-    class Everyday:Accounts
+    public class Everyday:Accounts
     {
         public Everyday() : base()
         {

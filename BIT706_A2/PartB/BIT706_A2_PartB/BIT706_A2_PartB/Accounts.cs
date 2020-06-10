@@ -24,6 +24,7 @@ namespace BIT706_A2_PartB
             nextAccountID++;
         }
 
+       
 
         public string AccountType
         {
@@ -96,9 +97,10 @@ namespace BIT706_A2_PartB
                 String successString = accountType + accountID + "; Withdraw: $" + withdrawValue + "; Balance: $" + accountBalance;
                 return successString;
             }
-            String failString = accountType + accountID + "; Withdraw: $" + withdrawValue + "; Withdraw failed; Fee: $" + accountFee + "; Balance: $"
-                + accountBalance;
-            return failString;
+            else
+            {
+                throw new NegativeWithdrawalException(withdrawValue + " cannot be withdrawn.");
+            }
 
         }
 

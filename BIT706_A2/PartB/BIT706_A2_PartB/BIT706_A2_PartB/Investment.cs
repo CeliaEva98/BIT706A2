@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BIT706_A2_PartB
 {
-    class Investment:Accounts
+    public class Investment:Accounts
     {
         public Investment() : base()
         {
