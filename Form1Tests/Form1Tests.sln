@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Form1Tests", "Form1Tests\Form1Tests.csproj", "{66FEA338-C841-4AA0-826F-37E61A185B6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIT706_A2_PartB", "..\CeliaEva98\BIT706A2\BIT706_A2\PartB\BIT706_A2_PartB\BIT706_A2_PartB\BIT706_A2_PartB.csproj", "{43380D6F-B7D3-4AC7-A49F-20E968753CB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{66FEA338-C841-4AA0-826F-37E61A185B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66FEA338-C841-4AA0-826F-37E61A185B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66FEA338-C841-4AA0-826F-37E61A185B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66FEA338-C841-4AA0-826F-37E61A185B6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43380D6F-B7D3-4AC7-A49F-20E968753CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43380D6F-B7D3-4AC7-A49F-20E968753CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43380D6F-B7D3-4AC7-A49F-20E968753CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43380D6F-B7D3-4AC7-A49F-20E968753CB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76FC2E54-0DBA-41B8-AC23-CC0AAAB697C2}
+	EndGlobalSection
+EndGlobal
