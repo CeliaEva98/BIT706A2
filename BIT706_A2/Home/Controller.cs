@@ -22,9 +22,9 @@ namespace Home
             return customerID;
         }
 
-        public int CreateCustomer(String firstName, String lastName, int contactNumber)
+        public int CreateCustomer(String custType, String firstName, String lastName, int contactNumber)
         {
-            Customer newCust = new Customer(setCustomerID(), firstName, lastName, contactNumber);
+            Customer newCust = new Customer(setCustomerID(), custType, firstName, lastName, contactNumber);
             CustomersList.Add(newCust);
             return customerID;
         }
@@ -48,7 +48,7 @@ namespace Home
            
         }
 
-        public void UpdateCustomerDetails(int customerNumber, string firstName, string lastName, int contactNumber)
+        public void UpdateCustomerDetails(int customerNumber, string custType, string firstName, string lastName, int contactNumber)
         {
             foreach (Customer cust in CustomersList.ToList())
             {
@@ -58,7 +58,7 @@ namespace Home
                 }
 
             }
-            Customer newCustomer = new Customer(customerNumber, firstName, lastName, contactNumber);
+            Customer newCustomer = new Customer(customerNumber, custType, firstName, lastName, contactNumber);
             CustomersList.Add(newCustomer);
         }
 

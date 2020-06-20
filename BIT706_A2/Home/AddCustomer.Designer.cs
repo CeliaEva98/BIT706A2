@@ -39,6 +39,9 @@
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonAddNew = new System.Windows.Forms.Button();
             this.labelError = new System.Windows.Forms.Label();
+            this.checkBoxStaff = new System.Windows.Forms.CheckBox();
+            this.checkBoxOther = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -56,7 +59,7 @@
             // 
             this.labelFirstName.AutoSize = true;
             this.labelFirstName.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFirstName.Location = new System.Drawing.Point(77, 240);
+            this.labelFirstName.Location = new System.Drawing.Point(77, 283);
             this.labelFirstName.Name = "labelFirstName";
             this.labelFirstName.Size = new System.Drawing.Size(125, 21);
             this.labelFirstName.TabIndex = 3;
@@ -64,7 +67,7 @@
             // 
             // textBoxFirstName
             // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(303, 239);
+            this.textBoxFirstName.Location = new System.Drawing.Point(303, 282);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(436, 22);
             this.textBoxFirstName.TabIndex = 4;
@@ -73,7 +76,7 @@
             // 
             this.labelLastName.AutoSize = true;
             this.labelLastName.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLastName.Location = new System.Drawing.Point(77, 308);
+            this.labelLastName.Location = new System.Drawing.Point(77, 350);
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.Size = new System.Drawing.Size(119, 21);
             this.labelLastName.TabIndex = 5;
@@ -81,7 +84,7 @@
             // 
             // textBoxLastName
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(303, 307);
+            this.textBoxLastName.Location = new System.Drawing.Point(303, 349);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(436, 22);
             this.textBoxLastName.TabIndex = 6;
@@ -90,7 +93,7 @@
             // 
             this.labelContact.AutoSize = true;
             this.labelContact.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelContact.Location = new System.Drawing.Point(77, 376);
+            this.labelContact.Location = new System.Drawing.Point(77, 416);
             this.labelContact.Name = "labelContact";
             this.labelContact.Size = new System.Drawing.Size(192, 21);
             this.labelContact.TabIndex = 7;
@@ -98,7 +101,7 @@
             // 
             // textBoxContact
             // 
-            this.textBoxContact.Location = new System.Drawing.Point(303, 375);
+            this.textBoxContact.Location = new System.Drawing.Point(303, 417);
             this.textBoxContact.Name = "textBoxContact";
             this.textBoxContact.Size = new System.Drawing.Size(436, 22);
             this.textBoxContact.TabIndex = 8;
@@ -128,7 +131,7 @@
             // buttonAddNew
             // 
             this.buttonAddNew.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAddNew.Location = new System.Drawing.Point(382, 455);
+            this.buttonAddNew.Location = new System.Drawing.Point(377, 482);
             this.buttonAddNew.Name = "buttonAddNew";
             this.buttonAddNew.Size = new System.Drawing.Size(273, 57);
             this.buttonAddNew.TabIndex = 11;
@@ -145,12 +148,46 @@
             this.labelError.TabIndex = 12;
             this.labelError.Text = "label2";
             // 
+            // checkBoxStaff
+            // 
+            this.checkBoxStaff.AutoSize = true;
+            this.checkBoxStaff.Location = new System.Drawing.Point(303, 233);
+            this.checkBoxStaff.Name = "checkBoxStaff";
+            this.checkBoxStaff.Size = new System.Drawing.Size(95, 21);
+            this.checkBoxStaff.TabIndex = 13;
+            this.checkBoxStaff.Text = "Bank Staff";
+            this.checkBoxStaff.UseVisualStyleBackColor = true;
+            this.checkBoxStaff.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // checkBoxOther
+            // 
+            this.checkBoxOther.AutoSize = true;
+            this.checkBoxOther.Location = new System.Drawing.Point(503, 233);
+            this.checkBoxOther.Name = "checkBoxOther";
+            this.checkBoxOther.Size = new System.Drawing.Size(130, 21);
+            this.checkBoxOther.TabIndex = 14;
+            this.checkBoxOther.Text = "Other Customer";
+            this.checkBoxOther.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(77, 233);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(169, 21);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Customer Type:";
+            // 
             // AddCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(800, 662);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.checkBoxOther);
+            this.Controls.Add(this.checkBoxStaff);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonAddNew);
             this.Controls.Add(this.buttonCancel);
@@ -182,5 +219,8 @@
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonAddNew;
         private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.CheckBox checkBoxStaff;
+        private System.Windows.Forms.CheckBox checkBoxOther;
+        private System.Windows.Forms.Label label2;
     }
 }

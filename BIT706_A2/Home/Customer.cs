@@ -12,15 +12,23 @@ namespace Home
         String customerFirstName;
         String customerLastName;
         int customerContactNum;
+        String custType;
+        public IFeesStrategy myFeesStrategy;
         
         public Customer()
         {
 
         }
 
-        public Customer(int customerIDNum, string firstName, string lastName, int contactNum)
+        public void SetFeesStrategy(IFeesStrategy newStrategy)
+        {
+            myFeesStrategy = newStrategy;
+        }
+
+        public Customer(int customerIDNum, string customerType, string firstName, string lastName, int contactNum)
         {
             customerID = customerIDNum;
+            custType = customerType;
             customerFirstName = firstName;
             customerLastName = lastName;
             customerContactNum = contactNum;
