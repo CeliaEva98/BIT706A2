@@ -20,6 +20,8 @@ namespace Home
             labelError.Text = "";
         }
 
+
+
         private void buttonAddNew_Click(object sender, EventArgs e)
         {
             string firstName = "";
@@ -30,9 +32,10 @@ namespace Home
             Boolean lastNameCorrect = false;
             Boolean contactNumberCorrect = false;
 
+
             if (textBoxFirstName.Text != null && textBoxLastName.Text != "")
             {
-                if (textBoxFirstName.Text.Any(Char.IsNumber)) 
+                if (textBoxFirstName.Text.Any(Char.IsNumber))
                 {
                     labelError.Text = "INVALID ENTRIES. Invalid details cleared. Please try again!";
                     textBoxFirstName.Text = "";
@@ -62,7 +65,7 @@ namespace Home
                 {
                     lastName = textBoxLastName.Text;
                     lastNameCorrect = true;
-                } 
+                }
             }
             else
             {
@@ -92,9 +95,10 @@ namespace Home
                 textBoxContact.Text = "";
                 contactNumberCorrect = false;
             }
-            if (firstNameCorrect && lastNameCorrect && contactNumberCorrect)
+
+            if (firstNameCorrect && lastNameCorrect && contactNumberCorrect && checkBoxStaff.Checked)
             {
-                int correspondingCustomerID = control.CreateCustomer(firstName, lastName, contactNumber);
+                int correspondingCustomerID = control.CreateCustomer("Staff", firstName, lastName, contactNumber);
                 if (control.FindCustomer(correspondingCustomerID) != null)
                 {
                     labelError.Text = "New customer added successfully! Customer ID is: " + correspondingCustomerID;
@@ -107,6 +111,25 @@ namespace Home
                     labelError.Text = "Customer could not be added. Please try again!";
                 }
             }
+            else if (firstNameCorrect && lastNameCorrect && contactNumberCorrect && checkBoxOther.Checked)
+            {
+                int correspondingCustomerID = control.CreateCustomer("Other", firstName, lastName, contactNumber);
+                if (control.FindCustomer(correspondingCustomerID) != null)
+                {
+                    labelError.Text = "New customer added successfully! Customer ID is: " + correspondingCustomerID;
+                    textBoxFirstName.Text = "";
+                    textBoxLastName.Text = "";
+                    textBoxContact.Text = "";
+                }
+                else
+                {
+                    labelError.Text = "Customer could not be added. Please try again!";
+                }
+            }
+            else
+            {
+                labelError.Text = "Please select a checkbox and try again.";
+            }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -118,7 +141,14 @@ namespace Home
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBoxStaff.Checked == true)
+            {
+                checkBoxOther.Checked = false;
+            }
+            else if (checkBoxOther.Checked == true)
+            {
+                checkBoxStaff.Checked = false;
+            }
         }
     }
 }
