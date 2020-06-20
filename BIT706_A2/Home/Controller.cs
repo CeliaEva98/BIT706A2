@@ -70,9 +70,7 @@ namespace Home
                 {
                     return cust;
                 }
-                
-                
-                
+
             }
             
             return null;
