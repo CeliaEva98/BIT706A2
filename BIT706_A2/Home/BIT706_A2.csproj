@@ -46,12 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Accounts.cs" />
     <Compile Include="AddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddCustomer.Designer.cs">
       <DependentUpon>AddCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="BankStaff.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="Customer.cs" />
     <Compile Include="EditCustomer.cs">
@@ -60,11 +62,20 @@
     <Compile Include="EditCustomer.Designer.cs">
       <DependentUpon>EditCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Everyday.cs" />
+    <Compile Include="IFeesStrategy.cs" />
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Investment.cs" />
+    <Compile Include="ManageAccounts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageAccounts.Designer.cs">
+      <DependentUpon>ManageAccounts.cs</DependentUpon>
     </Compile>
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
@@ -72,6 +83,8 @@
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Omni.cs" />
+    <Compile Include="OtherCust.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AddCustomer.resx">
@@ -82,6 +95,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageAccounts.resx">
+      <DependentUpon>ManageAccounts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>

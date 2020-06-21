@@ -41,6 +41,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labelIDNum = new System.Windows.Forms.Label();
             this.labelUserMessage = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.Label();
+            this.checkBoxStaff = new System.Windows.Forms.CheckBox();
+            this.checkBoxOther = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -57,7 +60,7 @@
             // buttonSaveChanges
             // 
             this.buttonSaveChanges.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSaveChanges.Location = new System.Drawing.Point(406, 518);
+            this.buttonSaveChanges.Location = new System.Drawing.Point(396, 545);
             this.buttonSaveChanges.Name = "buttonSaveChanges";
             this.buttonSaveChanges.Size = new System.Drawing.Size(273, 57);
             this.buttonSaveChanges.TabIndex = 20;
@@ -89,7 +92,7 @@
             // 
             // textBoxContact
             // 
-            this.textBoxContact.Location = new System.Drawing.Point(319, 458);
+            this.textBoxContact.Location = new System.Drawing.Point(319, 498);
             this.textBoxContact.Name = "textBoxContact";
             this.textBoxContact.Size = new System.Drawing.Size(436, 22);
             this.textBoxContact.TabIndex = 17;
@@ -98,7 +101,7 @@
             // 
             this.labelContact.AutoSize = true;
             this.labelContact.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelContact.Location = new System.Drawing.Point(93, 459);
+            this.labelContact.Location = new System.Drawing.Point(93, 498);
             this.labelContact.Name = "labelContact";
             this.labelContact.Size = new System.Drawing.Size(192, 21);
             this.labelContact.TabIndex = 16;
@@ -106,7 +109,7 @@
             // 
             // textBoxLastName
             // 
-            this.textBoxLastName.Location = new System.Drawing.Point(319, 395);
+            this.textBoxLastName.Location = new System.Drawing.Point(319, 438);
             this.textBoxLastName.Name = "textBoxLastName";
             this.textBoxLastName.Size = new System.Drawing.Size(436, 22);
             this.textBoxLastName.TabIndex = 15;
@@ -115,7 +118,7 @@
             // 
             this.labelLastName.AutoSize = true;
             this.labelLastName.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelLastName.Location = new System.Drawing.Point(93, 395);
+            this.labelLastName.Location = new System.Drawing.Point(93, 437);
             this.labelLastName.Name = "labelLastName";
             this.labelLastName.Size = new System.Drawing.Size(119, 21);
             this.labelLastName.TabIndex = 14;
@@ -123,7 +126,7 @@
             // 
             // textBoxFirstName
             // 
-            this.textBoxFirstName.Location = new System.Drawing.Point(319, 328);
+            this.textBoxFirstName.Location = new System.Drawing.Point(319, 382);
             this.textBoxFirstName.Name = "textBoxFirstName";
             this.textBoxFirstName.Size = new System.Drawing.Size(436, 22);
             this.textBoxFirstName.TabIndex = 13;
@@ -132,7 +135,7 @@
             // 
             this.labelFirstName.AutoSize = true;
             this.labelFirstName.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFirstName.Location = new System.Drawing.Point(93, 327);
+            this.labelFirstName.Location = new System.Drawing.Point(93, 381);
             this.labelFirstName.Name = "labelFirstName";
             this.labelFirstName.Size = new System.Drawing.Size(125, 21);
             this.labelFirstName.TabIndex = 12;
@@ -142,7 +145,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(55, 269);
+            this.label2.Location = new System.Drawing.Point(55, 318);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(230, 21);
             this.label2.TabIndex = 21;
@@ -152,7 +155,7 @@
             // labelIDNum
             // 
             this.labelIDNum.AutoSize = true;
-            this.labelIDNum.Location = new System.Drawing.Point(319, 269);
+            this.labelIDNum.Location = new System.Drawing.Point(316, 318);
             this.labelIDNum.Name = "labelIDNum";
             this.labelIDNum.Size = new System.Drawing.Size(46, 17);
             this.labelIDNum.TabIndex = 22;
@@ -167,12 +170,45 @@
             this.labelUserMessage.TabIndex = 23;
             this.labelUserMessage.Text = "label3";
             // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label.Location = new System.Drawing.Point(94, 265);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(169, 21);
+            this.label.TabIndex = 24;
+            this.label.Text = "Customer Type:";
+            // 
+            // checkBoxStaff
+            // 
+            this.checkBoxStaff.AutoSize = true;
+            this.checkBoxStaff.Location = new System.Drawing.Point(319, 265);
+            this.checkBoxStaff.Name = "checkBoxStaff";
+            this.checkBoxStaff.Size = new System.Drawing.Size(95, 21);
+            this.checkBoxStaff.TabIndex = 25;
+            this.checkBoxStaff.Text = "Bank Staff";
+            this.checkBoxStaff.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxOther
+            // 
+            this.checkBoxOther.AutoSize = true;
+            this.checkBoxOther.Location = new System.Drawing.Point(479, 265);
+            this.checkBoxOther.Name = "checkBoxOther";
+            this.checkBoxOther.Size = new System.Drawing.Size(66, 21);
+            this.checkBoxOther.TabIndex = 26;
+            this.checkBoxOther.Text = "Other";
+            this.checkBoxOther.UseVisualStyleBackColor = true;
+            // 
             // EditCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(800, 711);
+            this.Controls.Add(this.checkBoxOther);
+            this.Controls.Add(this.checkBoxStaff);
+            this.Controls.Add(this.label);
             this.Controls.Add(this.labelUserMessage);
             this.Controls.Add(this.labelIDNum);
             this.Controls.Add(this.label2);
@@ -208,5 +244,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelIDNum;
         private System.Windows.Forms.Label labelUserMessage;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.CheckBox checkBoxStaff;
+        private System.Windows.Forms.CheckBox checkBoxOther;
     }
 }
