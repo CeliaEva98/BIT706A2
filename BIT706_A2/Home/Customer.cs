@@ -38,6 +38,7 @@ namespace Home
         public string firstName { get => customerFirstName; set => customerFirstName = value; }
         public string lastName { get => customerLastName; set => customerLastName = value; }
         public int contactNum { get => customerContactNum; set => customerContactNum = value; }
+        public string customerType { get => custType; set => custType = value; }
     }
     
 }

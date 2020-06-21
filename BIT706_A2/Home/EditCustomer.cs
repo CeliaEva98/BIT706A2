@@ -21,6 +21,8 @@ namespace Home
             
         }
 
+
+
         public void setLabelText(string labelText)
         {
             labelIDNum.Text = labelText;
@@ -59,6 +61,20 @@ namespace Home
             string customerFirstName = textBoxFirstName.Text;
             string customerLastName = textBoxLastName.Text;
             int customerContactNum = Int32.Parse(textBoxContact.Text);
+            string customerType = "";
+
+            if(checkBoxOther.Checked)
+            {
+                customerType = "Other";
+            }
+            else if (checkBoxStaff.Checked)
+            {
+                customerType = "Staff";
+            }
+            else
+            {
+                labelUserMessage.Text = "Please select a cusotomer type and try again.";
+            }
 
             if (textBoxContact.Text.All(Char.IsNumber) != true)
             {
@@ -74,7 +90,7 @@ namespace Home
             }
             else
             {
-                control.UpdateCustomerDetails(customerID, customerFirstName, customerLastName, customerContactNum);
+                control.UpdateCustomerDetails(customerID, customerType, customerFirstName, customerLastName, customerContactNum);
                 labelUserMessage.Text = "Customer details successfully updated!";
             }
             

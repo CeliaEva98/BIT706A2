@@ -35,6 +35,18 @@ namespace Home
             CustomersList.Remove(retrievedCustomer);
         }
         
+        public string GetCustomerType(int customerNumber)
+        {
+            string customerType = "";
+            foreach (Customer cust in CustomersList)
+            {
+                if (cust.ID == customerNumber)
+                {
+                    customerType = cust.customerType;
+                }
+            }
+            return customerType;
+        }
 
         public void EditCustomer(int customerNumber)
         {
