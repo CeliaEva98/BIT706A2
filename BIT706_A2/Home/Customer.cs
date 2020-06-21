@@ -15,6 +15,7 @@ namespace Home
         String custType;
         public IFeesStrategy myFeesStrategy;
         
+        
         public Customer()
         {
 

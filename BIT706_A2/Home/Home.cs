@@ -23,5 +23,12 @@ namespace Home
             Menu mainMenu = new Menu();
             mainMenu.Show();
         }
+
+        private void buttonManageAccounts_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ManageAccounts newManage = new ManageAccounts();
+            newManage.Show();
+        }
     }
 }

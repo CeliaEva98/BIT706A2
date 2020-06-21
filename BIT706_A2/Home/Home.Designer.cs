@@ -68,6 +68,7 @@
             this.buttonManageAccounts.TabIndex = 2;
             this.buttonManageAccounts.Text = "Manage Customer Accounts";
             this.buttonManageAccounts.UseVisualStyleBackColor = false;
+            this.buttonManageAccounts.Click += new System.EventHandler(this.buttonManageAccounts_Click);
             // 
             // Home
             // 
