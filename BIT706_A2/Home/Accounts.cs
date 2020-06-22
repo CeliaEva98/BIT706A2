@@ -8,6 +8,7 @@ namespace Home
 {
     class Accounts
     {
+        protected int customerNumber;
         protected string accountType;
         static int nextAccountID = 1;
         private int accountID;
@@ -17,7 +18,7 @@ namespace Home
         private double accountBalance = 0;
         private double previousBalance = 0;
         protected double interestTotal;
-        List<Accounts> customerAccounts = new List<Accounts>();
+        
 
         public Accounts()
         {
@@ -25,6 +26,11 @@ namespace Home
             nextAccountID++;
         }
 
+        public int CustomerNumber
+        {
+            get { return customerNumber; }
+            set { customerNumber = value; }
+        }
 
         public string AccountType
         {

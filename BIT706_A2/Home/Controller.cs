@@ -12,6 +12,7 @@ namespace Home
         int customerID;
 
         public static List<Customer> CustomersList = new List<Customer>();
+        public List<Accounts> customerAccounts = new List<Accounts>();
 
 
 
@@ -127,6 +128,25 @@ namespace Home
                 }
             }
             return contactNumber;
+        }
+
+        public List<Accounts> GetCustomerAccounts(int customerNumber)
+        {
+            List<Accounts> CorrespondingAccounts = new List<Accounts>();
+            foreach (Accounts acc in customerAccounts)
+            {
+                if (acc.CustomerNumber == customerNumber)
+                {
+                    CorrespondingAccounts.Add(acc);
+                }
+                return CorrespondingAccounts;
+            }
+            return null;
+        }
+
+        public int CompleteDeposit(int customerNumber)
+        {
+
         }
 
         public string CustomerInfoDisplay(int customerNumber)
