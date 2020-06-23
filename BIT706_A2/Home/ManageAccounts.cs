@@ -16,9 +16,11 @@ namespace Home
         string transactionType = null;
         int enteredAmount = 0;
         Boolean itemSelected;
-        String selectedItem;
+        int selectedAccountIndex = 0;
         Boolean IDentered = false;
-
+        int selectedAccountID = 0;
+        string selectedAccountType = "";
+        List<Accounts> listBoxDisplay = new List<Accounts>();
 
         public ManageAccounts()
         {
@@ -64,6 +66,14 @@ namespace Home
             buttonCancelTransfer.Hide();
         }
 
+        private void showTransactionButtons()
+        {
+            buttonDeposit.Show();
+            buttonWithdraw.Show();
+            buttonTransfer.Show();
+            buttonAddInterest.Show();
+        }
+
         private void buttonDeposit_Click(object sender, EventArgs e)
         {
             transactionType = "deposit";
@@ -95,6 +105,8 @@ namespace Home
             {
                 buttonContinue.Text = "Deposit";
                 
+                double newBalance = control.CompleteDeposit(Int32.Parse(labelCustDetails.Text), selectedAccountID, Int32.Parse(textBoxAmount.Text));
+                control.UpdateAccountBalance(Int32.Parse(labelCustDetails.Text), selectedAccountID, selectedAccountType, newBalance);
                 
             }
             else if (transactionType == "withdraw" && textBoxAmount.Text != null && itemSelected == true)
@@ -109,7 +121,10 @@ namespace Home
             itemSelected = false;
             if (listBoxAccounts.SelectedIndex >= 0)
             {
-                selectedItem = listBoxAccounts.SelectedItem.ToString();
+                selectedAccountIndex = listBoxAccounts.SelectedIndex;
+                selectedAccountID = listBoxDisplay[selectedAccountIndex].AccountID;
+                selectedAccountType = listBoxDisplay[selectedAccountIndex].AccountType;
+                showTransactionButtons();
                 itemSelected = true;
             }
             else
@@ -138,8 +153,21 @@ namespace Home
                 {                    
                     if (control.GetCustomerAccounts(enteredID) != null)
                     {
-                        listBoxAccounts.DataSource = control.GetCustomerAccounts(enteredID);
-                        IDentered = true;
+                        int i = 0;
+                        listBoxDisplay = control.GetCustomerAccounts(enteredID);
+                        foreach (Accounts acc in listBoxDisplay)
+                        {
+                            int listLength = listBoxDisplay.Count();
+                            
+                            while (i < listLength)
+                            {
+                                string displayItem = "";
+                                displayItem = listBoxDisplay[i].AccountType.ToString() + "\t" + listBoxDisplay[i].AccountID.ToString() + "\t $"
+                                    + listBoxDisplay[i].Balance.ToString();
+                                listBoxAccounts.Items.Add(displayItem);
+                                i++;
+                            }
+                        }
                     }
                     else
                     {
@@ -153,6 +181,13 @@ namespace Home
                     buttonWithdraw.Show();
                     buttonTransfer.Show();
                     buttonAddInterest.Show();
+                }
+                else
+                {
+                    buttonDeposit.Hide();
+                    buttonWithdraw.Hide();
+                    buttonTransfer.Hide();
+                    buttonAddInterest.Hide();
                 }
             }
         }

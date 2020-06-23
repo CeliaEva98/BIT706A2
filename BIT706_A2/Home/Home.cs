@@ -14,7 +14,13 @@ namespace Home
     {
         public Home()
         {
+            Controller control = new Controller();
             InitializeComponent();
+            Accounts testAcc = new Accounts(1, 3, "fake");
+            Controller.customerAccounts.Add(testAcc);
+            Accounts testAcc2 = new Accounts(1, 45, "shit");
+            Controller.customerAccounts.Add(testAcc2);
+            int helpme = control.CreateCustomer("Shit", "poo", "bum", 021890212);
         }
 
         private void buttonManage_Click(object sender, EventArgs e)

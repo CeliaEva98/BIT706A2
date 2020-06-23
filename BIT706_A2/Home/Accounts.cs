@@ -10,7 +10,6 @@ namespace Home
     {
         protected int customerNumber;
         protected string accountType;
-        static int nextAccountID = 1;
         private int accountID;
         protected double interestRate = 0.04;
         protected int overdraftLimit;
@@ -20,10 +19,24 @@ namespace Home
         protected double interestTotal;
         
 
+
+        public Accounts(int customerIDNumber, int newAccountID, string newAccountType)
+        {
+            customerNumber = customerIDNumber;
+            accountID = newAccountID;
+            accountType = newAccountType;
+        }
+
+        public Accounts(int customerIDNumber, int newAccountID, string newAccountType, double balance)
+        {
+            customerNumber = customerIDNumber;
+            accountID = newAccountID;
+            accountType = newAccountType;
+            accountBalance = balance;
+        }
+
         public Accounts()
         {
-            accountID = nextAccountID;
-            nextAccountID++;
         }
 
         public int CustomerNumber

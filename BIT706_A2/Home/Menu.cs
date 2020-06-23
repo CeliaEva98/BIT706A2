@@ -17,11 +17,14 @@ namespace Home
         string enteredIDString;
         int enteredID;
         Boolean customerFound = false;
+        
+        
 
         public Menu()
         {
             InitializeComponent();
             labelDisplay.Text = "";
+
 
         }
 
@@ -49,8 +52,7 @@ namespace Home
                     labelDisplay.Text = "Please enter a valid ID. Letters are not permitted.";
                 }
                 else
-                {
-                    
+                {                   
                     enteredID = Int32.Parse(enteredIDString);
                     customerDisplay = control.CustomerInfoDisplay(enteredID);
                     labelDisplay.Text = customerDisplay;

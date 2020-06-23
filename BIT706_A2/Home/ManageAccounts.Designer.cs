@@ -67,7 +67,7 @@
             // labelCustDetails
             // 
             this.labelCustDetails.AutoSize = true;
-            this.labelCustDetails.Location = new System.Drawing.Point(123, 138);
+            this.labelCustDetails.Location = new System.Drawing.Point(45, 115);
             this.labelCustDetails.Name = "labelCustDetails";
             this.labelCustDetails.Size = new System.Drawing.Size(46, 17);
             this.labelCustDetails.TabIndex = 2;
@@ -149,9 +149,9 @@
             // 
             // buttonContinue
             // 
-            this.buttonContinue.Location = new System.Drawing.Point(19, 70);
+            this.buttonContinue.Location = new System.Drawing.Point(6, 70);
             this.buttonContinue.Name = "buttonContinue";
-            this.buttonContinue.Size = new System.Drawing.Size(75, 23);
+            this.buttonContinue.Size = new System.Drawing.Size(88, 23);
             this.buttonContinue.TabIndex = 1;
             this.buttonContinue.Text = "Continue";
             this.buttonContinue.UseVisualStyleBackColor = true;
