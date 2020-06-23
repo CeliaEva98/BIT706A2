@@ -113,6 +113,7 @@
             this.buttonWithdraw.Text = "Withdraw";
             this.buttonWithdraw.UseVisualStyleBackColor = true;
             this.buttonWithdraw.Visible = false;
+            this.buttonWithdraw.Click += new System.EventHandler(this.buttonWithdraw_Click);
             // 
             // buttonAddInterest
             // 

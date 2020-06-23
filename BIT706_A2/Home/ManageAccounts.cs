@@ -77,7 +77,7 @@ namespace Home
         private void buttonDeposit_Click(object sender, EventArgs e)
         {
             transactionType = "deposit";
-
+            buttonContinue.Text = "Deposit";
             showAmountsGroupBoxItems();
             listBoxAccountsTransfer.Hide();
             
@@ -103,15 +103,15 @@ namespace Home
 
             if (transactionType == "deposit" && textBoxAmount.Text != null && itemSelected == true)
             {
-                buttonContinue.Text = "Deposit";
+                
                 
                 double newBalance = control.CompleteDeposit(Int32.Parse(labelCustDetails.Text), selectedAccountID, Int32.Parse(textBoxAmount.Text));
                 control.UpdateAccountBalance(Int32.Parse(labelCustDetails.Text), selectedAccountID, selectedAccountType, newBalance);
-                
+                populateListBox(Int32.Parse(labelCustDetails.Text));
             }
             else if (transactionType == "withdraw" && textBoxAmount.Text != null && itemSelected == true)
             {
-                buttonContinue.Text = "Withdraw";
+                
             }
             
         }
@@ -139,6 +139,34 @@ namespace Home
             
         }
 
+        private void populateListBox(int customerID)
+        {
+            listBoxAccounts.Items.Clear();
+            if (control.GetCustomerAccounts(customerID) != null)
+            {
+                int i = 0;
+                listBoxDisplay = control.GetCustomerAccounts(customerID);
+                foreach (Accounts acc in listBoxDisplay)
+                {
+                    int listLength = listBoxDisplay.Count();
+
+                    while (i < listLength)
+                    {
+                        string displayItem = "";
+                        displayItem = listBoxDisplay[i].AccountType.ToString() + "\t" + listBoxDisplay[i].AccountID.ToString() + "\t $"
+                            + listBoxDisplay[i].Balance.ToString();
+                        listBoxAccounts.Items.Add(displayItem);
+                        i++;
+                    }
+                }
+            }
+            else
+            {
+                labelError.Text = "No accounts to display.";
+
+            }
+        }
+
         private void buttonSearch_Click(object sender, EventArgs e)
         {
             if (textBoxEnteredID.Text != null)
@@ -150,30 +178,9 @@ namespace Home
                     labelError.Text = "No customer found with the ID. Please try again.";
                 }
                 else
-                {                    
-                    if (control.GetCustomerAccounts(enteredID) != null)
-                    {
-                        int i = 0;
-                        listBoxDisplay = control.GetCustomerAccounts(enteredID);
-                        foreach (Accounts acc in listBoxDisplay)
-                        {
-                            int listLength = listBoxDisplay.Count();
-                            
-                            while (i < listLength)
-                            {
-                                string displayItem = "";
-                                displayItem = listBoxDisplay[i].AccountType.ToString() + "\t" + listBoxDisplay[i].AccountID.ToString() + "\t $"
-                                    + listBoxDisplay[i].Balance.ToString();
-                                listBoxAccounts.Items.Add(displayItem);
-                                i++;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        labelError.Text = "No accounts to display.";
-                        
-                    }
+                {
+                    labelCustDetails.Text = enteredID.ToString();
+                    populateListBox(enteredID);
                 }
                 if (IDentered == true)
                 {
@@ -190,6 +197,11 @@ namespace Home
                     buttonAddInterest.Hide();
                 }
             }
+        }
+
+        private void buttonWithdraw_Click(object sender, EventArgs e)
+        {
+            buttonContinue.Text = "Withdraw";
         }
     }
 }
