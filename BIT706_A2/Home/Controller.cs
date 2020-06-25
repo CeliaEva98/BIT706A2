@@ -168,13 +168,36 @@ namespace Home
         {
             foreach(Accounts acc in customerAccounts)
             {
-                if (acc.CustomerNumber == customerNumber && acc.AccountID == accountNumber)
+                if (acc.CustomerNumber == customerNumber && acc.AccountID == accountNumber && acc.AccountType == accountType)
                 {
                     acc.Balance = newBalance;
                 }
             }
 
         }
+
+        public void AddAccount(int customerNumber, string accountType)
+        {
+            if (accountType == "Omni")
+            {
+                Omni newOmni = new Omni(customerNumber, setAccountID(customerNumber));
+                customerAccounts.Add(newOmni);
+            }
+            else if (accountType == "Investment")
+            {
+                Investment newInvest = new Investment(customerNumber, setAccountID(customerNumber));
+                customerAccounts.Add(newInvest);
+            }
+            else if (accountType == "Everyday")
+            {
+                Everyday newEveryday = new Everyday(customerNumber, setAccountID(customerNumber));
+                customerAccounts.Add(newEveryday);
+            }
+
+            
+        }
+
+        
 
         public double GetAccountBalance(int customerNumber, int accountNumber)
         {

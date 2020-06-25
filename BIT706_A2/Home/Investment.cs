@@ -13,5 +13,12 @@ namespace Home
             base.AccountType = "Investment";
             base.Overdraft = 0;
         }
+
+        public Investment(int customerNumber, int accountNumber)
+        {
+            base.customerNumber = customerNumber;
+            base.accountID = accountNumber;
+            base.accountType = "Investment";
+        }
     }
 }

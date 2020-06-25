@@ -136,7 +136,9 @@ namespace Home
 
         private void buttonNewAccount_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            AddAccount newAccount = new AddAccount();
+            newAccount.Show();
         }
 
         private void populateListBox(int customerID)

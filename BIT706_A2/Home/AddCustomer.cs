@@ -150,5 +150,15 @@ namespace Home
                 checkBoxStaff.Checked = false;
             }
         }
+
+        private void textBoxContact_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxOther_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

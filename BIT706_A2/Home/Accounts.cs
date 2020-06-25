@@ -10,7 +10,7 @@ namespace Home
     {
         protected int customerNumber;
         protected string accountType;
-        private int accountID;
+        protected int accountID;
         protected double interestRate = 0.04;
         protected int overdraftLimit;
         protected int accountFee = 10;

@@ -105,6 +105,7 @@
             this.textBoxContact.Name = "textBoxContact";
             this.textBoxContact.Size = new System.Drawing.Size(436, 22);
             this.textBoxContact.TabIndex = 8;
+            this.textBoxContact.TextChanged += new System.EventHandler(this.textBoxContact_TextChanged);
             // 
             // labelAddNew
             // 
@@ -168,6 +169,7 @@
             this.checkBoxOther.TabIndex = 14;
             this.checkBoxOther.Text = "Other Customer";
             this.checkBoxOther.UseVisualStyleBackColor = true;
+            this.checkBoxOther.CheckedChanged += new System.EventHandler(this.checkBoxOther_CheckedChanged);
             // 
             // label2
             // 
