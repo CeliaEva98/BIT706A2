@@ -11,9 +11,31 @@ namespace Home
         int nextCustomerID = 1;
         int customerID;
 
+        int nextAccountID = 1;
+        int accountID;
+
         public static List<Customer> CustomersList = new List<Customer>();
+        public static List<Accounts> customerAccounts = new List<Accounts>();
+        List<Accounts> CorrespondingAccounts = new List<Accounts>();
 
-
+        public int setAccountID(int customerNum)
+        {
+            foreach (Accounts acc in customerAccounts)
+            {
+                if (acc.CustomerNumber == customerNum && acc.AccountID == nextAccountID)
+                {
+                    nextAccountID++;
+                }
+                else
+                {
+                    accountID = nextAccountID;
+                    nextAccountID = 1;
+                    return accountID;
+                }
+            }
+            int errorEnd = 0;
+            return errorEnd;
+        }
 
         public int setCustomerID()
         {
@@ -125,6 +147,83 @@ namespace Home
                 }
             }
             return contactNumber;
+        }
+
+        public List<Accounts> GetCustomerAccounts(int customerNumber)
+        {
+            CorrespondingAccounts.Clear();
+
+            foreach (Accounts acc in customerAccounts)
+            {
+                if (acc.CustomerNumber == customerNumber)
+                {
+                    CorrespondingAccounts.Add(acc);
+                }
+                
+            }
+            return CorrespondingAccounts;
+        }
+
+        public void UpdateAccountBalance(int customerNumber, int accountNumber, string accountType, double newBalance)
+        {
+            foreach(Accounts acc in customerAccounts)
+            {
+                if (acc.CustomerNumber == customerNumber && acc.AccountID == accountNumber && acc.AccountType == accountType)
+                {
+                    acc.Balance = newBalance;
+                }
+            }
+
+        }
+
+        public void AddAccount(int customerNumber, string accountType)
+        {
+            if (accountType == "Omni")
+            {
+                Omni newOmni = new Omni(customerNumber, setAccountID(customerNumber));
+                customerAccounts.Add(newOmni);
+            }
+            else if (accountType == "Investment")
+            {
+                Investment newInvest = new Investment(customerNumber, setAccountID(customerNumber));
+                customerAccounts.Add(newInvest);
+            }
+            else if (accountType == "Everyday")
+            {
+                Everyday newEveryday = new Everyday(customerNumber, setAccountID(customerNumber));
+                customerAccounts.Add(newEveryday);
+            }
+
+            
+        }
+
+        
+
+        public double GetAccountBalance(int customerNumber, int accountNumber, string accountType)
+        {
+            double balance = 0;
+            foreach (Accounts acc in customerAccounts)
+            {
+                if (acc.CustomerNumber == customerNumber && acc.AccountID == accountNumber && acc.AccountType == accountType)
+                {
+                    balance = acc.Balance;
+                }
+            }
+            return balance;        
+        }
+
+        public double CompleteDeposit(int customerNumber, int accountNumber, int depositAmount, string accountType)
+        {
+            double previousBalance = GetAccountBalance(customerNumber, accountNumber, accountType);
+            double newBalance = previousBalance + Convert.ToDouble(depositAmount);
+            return newBalance;
+        }
+
+        public double CompleteWithdrawal(int customerNumber, int accountNumber, int withdrawalAmount, string accountType)
+        {
+            double previousBalance = GetAccountBalance(customerNumber, accountNumber, accountType);
+            double newBalance = previousBalance - Convert.ToDouble(withdrawalAmount);
+            return newBalance;
         }
 
         public string CustomerInfoDisplay(int customerNumber)

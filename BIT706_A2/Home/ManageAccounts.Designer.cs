@@ -36,9 +36,9 @@
             this.buttonWithdraw = new System.Windows.Forms.Button();
             this.buttonAddInterest = new System.Windows.Forms.Button();
             this.groupBoxAmounts = new System.Windows.Forms.GroupBox();
-            this.textBoxAmount = new System.Windows.Forms.TextBox();
-            this.buttonContinue = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonContinue = new System.Windows.Forms.Button();
+            this.textBoxAmount = new System.Windows.Forms.TextBox();
             this.listBoxAccountsTransfer = new System.Windows.Forms.ListBox();
             this.buttonTransfer = new System.Windows.Forms.Button();
             this.groupBoxTransfer = new System.Windows.Forms.GroupBox();
@@ -46,6 +46,9 @@
             this.buttonTransf = new System.Windows.Forms.Button();
             this.textBoxTransfer = new System.Windows.Forms.TextBox();
             this.labelError = new System.Windows.Forms.Label();
+            this.labelCustNum = new System.Windows.Forms.Label();
+            this.textBoxEnteredID = new System.Windows.Forms.TextBox();
+            this.buttonSearch = new System.Windows.Forms.Button();
             this.groupBoxAmounts.SuspendLayout();
             this.groupBoxTransfer.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +67,7 @@
             // labelCustDetails
             // 
             this.labelCustDetails.AutoSize = true;
-            this.labelCustDetails.Location = new System.Drawing.Point(123, 138);
+            this.labelCustDetails.Location = new System.Drawing.Point(45, 115);
             this.labelCustDetails.Name = "labelCustDetails";
             this.labelCustDetails.Size = new System.Drawing.Size(46, 17);
             this.labelCustDetails.TabIndex = 2;
@@ -78,15 +81,17 @@
             this.listBoxAccounts.Name = "listBoxAccounts";
             this.listBoxAccounts.Size = new System.Drawing.Size(252, 356);
             this.listBoxAccounts.TabIndex = 3;
+            this.listBoxAccounts.SelectedIndexChanged += new System.EventHandler(this.listBoxAccounts_SelectedIndexChanged);
             // 
             // buttonNewAccount
             // 
-            this.buttonNewAccount.Location = new System.Drawing.Point(596, 90);
+            this.buttonNewAccount.Location = new System.Drawing.Point(621, 130);
             this.buttonNewAccount.Name = "buttonNewAccount";
             this.buttonNewAccount.Size = new System.Drawing.Size(156, 65);
             this.buttonNewAccount.TabIndex = 4;
             this.buttonNewAccount.Text = "Open New Account";
             this.buttonNewAccount.UseVisualStyleBackColor = true;
+            this.buttonNewAccount.Click += new System.EventHandler(this.buttonNewAccount_Click);
             // 
             // buttonDeposit
             // 
@@ -96,6 +101,7 @@
             this.buttonDeposit.TabIndex = 5;
             this.buttonDeposit.Text = "Deposit";
             this.buttonDeposit.UseVisualStyleBackColor = true;
+            this.buttonDeposit.Visible = false;
             this.buttonDeposit.Click += new System.EventHandler(this.buttonDeposit_Click);
             // 
             // buttonWithdraw
@@ -106,6 +112,8 @@
             this.buttonWithdraw.TabIndex = 6;
             this.buttonWithdraw.Text = "Withdraw";
             this.buttonWithdraw.UseVisualStyleBackColor = true;
+            this.buttonWithdraw.Visible = false;
+            this.buttonWithdraw.Click += new System.EventHandler(this.buttonWithdraw_Click);
             // 
             // buttonAddInterest
             // 
@@ -115,6 +123,7 @@
             this.buttonAddInterest.TabIndex = 7;
             this.buttonAddInterest.Text = "Add Interest";
             this.buttonAddInterest.UseVisualStyleBackColor = true;
+            this.buttonAddInterest.Visible = false;
             // 
             // groupBoxAmounts
             // 
@@ -128,24 +137,6 @@
             this.groupBoxAmounts.TabStop = false;
             this.groupBoxAmounts.Visible = false;
             // 
-            // textBoxAmount
-            // 
-            this.textBoxAmount.Location = new System.Drawing.Point(19, 22);
-            this.textBoxAmount.Name = "textBoxAmount";
-            this.textBoxAmount.Size = new System.Drawing.Size(176, 22);
-            this.textBoxAmount.TabIndex = 0;
-            this.textBoxAmount.Visible = false;
-            // 
-            // buttonContinue
-            // 
-            this.buttonContinue.Location = new System.Drawing.Point(19, 70);
-            this.buttonContinue.Name = "buttonContinue";
-            this.buttonContinue.Size = new System.Drawing.Size(75, 23);
-            this.buttonContinue.TabIndex = 1;
-            this.buttonContinue.Text = "Continue";
-            this.buttonContinue.UseVisualStyleBackColor = true;
-            this.buttonContinue.Visible = false;
-            // 
             // buttonCancel
             // 
             this.buttonCancel.Location = new System.Drawing.Point(117, 70);
@@ -155,16 +146,37 @@
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Visible = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // buttonContinue
+            // 
+            this.buttonContinue.Location = new System.Drawing.Point(6, 70);
+            this.buttonContinue.Name = "buttonContinue";
+            this.buttonContinue.Size = new System.Drawing.Size(88, 23);
+            this.buttonContinue.TabIndex = 1;
+            this.buttonContinue.Text = "Continue";
+            this.buttonContinue.UseVisualStyleBackColor = true;
+            this.buttonContinue.Visible = false;
+            this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
+            // 
+            // textBoxAmount
+            // 
+            this.textBoxAmount.Location = new System.Drawing.Point(19, 22);
+            this.textBoxAmount.Name = "textBoxAmount";
+            this.textBoxAmount.Size = new System.Drawing.Size(176, 22);
+            this.textBoxAmount.TabIndex = 0;
+            this.textBoxAmount.Visible = false;
             // 
             // listBoxAccountsTransfer
             // 
             this.listBoxAccountsTransfer.FormattingEnabled = true;
             this.listBoxAccountsTransfer.ItemHeight = 16;
-            this.listBoxAccountsTransfer.Location = new System.Drawing.Point(520, 216);
+            this.listBoxAccountsTransfer.Location = new System.Drawing.Point(539, 216);
             this.listBoxAccountsTransfer.Name = "listBoxAccountsTransfer";
-            this.listBoxAccountsTransfer.Size = new System.Drawing.Size(238, 372);
+            this.listBoxAccountsTransfer.Size = new System.Drawing.Size(238, 356);
             this.listBoxAccountsTransfer.TabIndex = 9;
             this.listBoxAccountsTransfer.Visible = false;
+            this.listBoxAccountsTransfer.SelectedIndexChanged += new System.EventHandler(this.listBoxAccountsTransfer_SelectedIndexChanged);
             // 
             // buttonTransfer
             // 
@@ -174,64 +186,97 @@
             this.buttonTransfer.TabIndex = 10;
             this.buttonTransfer.Text = "Transfer";
             this.buttonTransfer.UseVisualStyleBackColor = true;
+            this.buttonTransfer.Visible = false;
             this.buttonTransfer.Click += new System.EventHandler(this.buttonTransfer_Click);
             // 
             // groupBoxTransfer
             // 
-            this.groupBoxTransfer.Controls.Add(this.labelError);
             this.groupBoxTransfer.Controls.Add(this.buttonCancelTransfer);
             this.groupBoxTransfer.Controls.Add(this.buttonTransf);
             this.groupBoxTransfer.Controls.Add(this.textBoxTransfer);
-            this.groupBoxTransfer.Location = new System.Drawing.Point(318, 90);
+            this.groupBoxTransfer.Location = new System.Drawing.Point(363, 90);
             this.groupBoxTransfer.Name = "groupBoxTransfer";
-            this.groupBoxTransfer.Size = new System.Drawing.Size(214, 105);
+            this.groupBoxTransfer.Size = new System.Drawing.Size(251, 105);
             this.groupBoxTransfer.TabIndex = 9;
             this.groupBoxTransfer.TabStop = false;
             this.groupBoxTransfer.Visible = false;
             // 
             // buttonCancelTransfer
             // 
-            this.buttonCancelTransfer.Location = new System.Drawing.Point(117, 70);
+            this.buttonCancelTransfer.Location = new System.Drawing.Point(157, 70);
             this.buttonCancelTransfer.Name = "buttonCancelTransfer";
             this.buttonCancelTransfer.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelTransfer.TabIndex = 2;
             this.buttonCancelTransfer.Text = "Cancel";
             this.buttonCancelTransfer.UseVisualStyleBackColor = true;
             this.buttonCancelTransfer.Visible = false;
+            this.buttonCancelTransfer.Click += new System.EventHandler(this.buttonCancelTransfer_Click);
             // 
             // buttonTransf
             // 
             this.buttonTransf.Location = new System.Drawing.Point(19, 70);
             this.buttonTransf.Name = "buttonTransf";
-            this.buttonTransf.Size = new System.Drawing.Size(75, 23);
+            this.buttonTransf.Size = new System.Drawing.Size(114, 23);
             this.buttonTransf.TabIndex = 1;
             this.buttonTransf.Text = "Continue";
             this.buttonTransf.UseVisualStyleBackColor = true;
             this.buttonTransf.Visible = false;
+            this.buttonTransf.Click += new System.EventHandler(this.buttonTransf_Click);
             // 
             // textBoxTransfer
             // 
             this.textBoxTransfer.Location = new System.Drawing.Point(19, 22);
             this.textBoxTransfer.Name = "textBoxTransfer";
-            this.textBoxTransfer.Size = new System.Drawing.Size(176, 22);
+            this.textBoxTransfer.Size = new System.Drawing.Size(226, 22);
             this.textBoxTransfer.TabIndex = 0;
             this.textBoxTransfer.Visible = false;
             // 
             // labelError
             // 
             this.labelError.AutoSize = true;
-            this.labelError.Location = new System.Drawing.Point(88, 48);
+            this.labelError.Location = new System.Drawing.Point(45, 196);
             this.labelError.Name = "labelError";
             this.labelError.Size = new System.Drawing.Size(46, 17);
             this.labelError.TabIndex = 3;
             this.labelError.Text = "label2";
+            // 
+            // labelCustNum
+            // 
+            this.labelCustNum.AutoSize = true;
+            this.labelCustNum.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCustNum.Location = new System.Drawing.Point(266, 53);
+            this.labelCustNum.Name = "labelCustNum";
+            this.labelCustNum.Size = new System.Drawing.Size(210, 21);
+            this.labelCustNum.TabIndex = 11;
+            this.labelCustNum.Text = "Customer Number: ";
+            // 
+            // textBoxEnteredID
+            // 
+            this.textBoxEnteredID.Location = new System.Drawing.Point(488, 52);
+            this.textBoxEnteredID.Name = "textBoxEnteredID";
+            this.textBoxEnteredID.Size = new System.Drawing.Size(270, 22);
+            this.textBoxEnteredID.TabIndex = 12;
+            // 
+            // buttonSearch
+            // 
+            this.buttonSearch.Location = new System.Drawing.Point(804, 37);
+            this.buttonSearch.Name = "buttonSearch";
+            this.buttonSearch.Size = new System.Drawing.Size(109, 52);
+            this.buttonSearch.TabIndex = 13;
+            this.buttonSearch.Text = "Search";
+            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // ManageAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
-            this.ClientSize = new System.Drawing.Size(800, 710);
+            this.ClientSize = new System.Drawing.Size(946, 631);
+            this.Controls.Add(this.labelError);
+            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.textBoxEnteredID);
+            this.Controls.Add(this.labelCustNum);
             this.Controls.Add(this.groupBoxTransfer);
             this.Controls.Add(this.buttonTransfer);
             this.Controls.Add(this.groupBoxAmounts);
@@ -274,5 +319,8 @@
         private System.Windows.Forms.Button buttonTransf;
         private System.Windows.Forms.TextBox textBoxTransfer;
         private System.Windows.Forms.Label labelError;
+        private System.Windows.Forms.Label labelCustNum;
+        private System.Windows.Forms.TextBox textBoxEnteredID;
+        private System.Windows.Forms.Button buttonSearch;
     }
 }

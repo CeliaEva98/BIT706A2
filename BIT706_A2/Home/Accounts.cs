@@ -8,23 +8,42 @@ namespace Home
 {
     class Accounts
     {
+        protected int customerNumber;
         protected string accountType;
-        static int nextAccountID = 1;
-        private int accountID;
+        protected int accountID;
         protected double interestRate = 0.04;
         protected int overdraftLimit;
         protected int accountFee = 10;
         private double accountBalance = 0;
         private double previousBalance = 0;
         protected double interestTotal;
-        List<Accounts> customerAccounts = new List<Accounts>();
+        
+
+
+        public Accounts(int customerIDNumber, int newAccountID, string newAccountType)
+        {
+            customerNumber = customerIDNumber;
+            accountID = newAccountID;
+            accountType = newAccountType;
+        }
+
+        public Accounts(int customerIDNumber, int newAccountID, string newAccountType, double balance)
+        {
+            customerNumber = customerIDNumber;
+            accountID = newAccountID;
+            accountType = newAccountType;
+            accountBalance = balance;
+        }
 
         public Accounts()
         {
-            accountID = nextAccountID;
-            nextAccountID++;
         }
 
+        public int CustomerNumber
+        {
+            get { return customerNumber; }
+            set { customerNumber = value; }
+        }
 
         public string AccountType
         {

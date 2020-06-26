@@ -13,5 +13,12 @@ namespace Home
             base.AccountType = "Omni";
             base.Overdraft = 1000;
         }
+
+        public Omni(int customerNumber, int accountID)
+        {
+            base.customerNumber = customerNumber;
+            base.accountID = accountID;
+            base.accountType = "Omni";
+        }
     }
 }

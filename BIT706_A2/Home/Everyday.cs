@@ -14,6 +14,11 @@ namespace Home
             base.Overdraft = 0;
         }
         
-        
+        public Everyday(int customerNumber, int accountNumber)
+        {
+            base.customerNumber = customerNumber;
+            base.accountID = accountNumber;
+            base.accountType = "Everyday";
+        }
     }
 }
