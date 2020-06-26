@@ -124,6 +124,7 @@
             this.buttonAddInterest.Text = "Add Interest";
             this.buttonAddInterest.UseVisualStyleBackColor = true;
             this.buttonAddInterest.Visible = false;
+            this.buttonAddInterest.Click += new System.EventHandler(this.buttonAddInterest_Click);
             // 
             // groupBoxAmounts
             // 

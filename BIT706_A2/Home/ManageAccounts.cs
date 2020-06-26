@@ -372,5 +372,12 @@ namespace Home
         {
             hideTransferGroupBoxItems();
         }
+
+        private void buttonAddInterest_Click(object sender, EventArgs e)
+        {
+            double newAccountBal = control.getInterest(Int32.Parse(labelCustDetails.Text), selectedAccountID, selectedAccountType);
+            control.UpdateAccountBalance(Int32.Parse(labelCustDetails.Text), selectedAccountID, selectedAccountType, newAccountBal);
+            populateListBox(Int32.Parse(labelCustDetails.Text));
+        }
     }
 }

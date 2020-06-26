@@ -164,6 +164,22 @@ namespace Home
             return CorrespondingAccounts;
         }
 
+        public double getInterest(int customerNumber, int accountNumber, string accountType)
+        {
+            double interestRate = 0;
+            double accountBalance = GetAccountBalance(customerNumber, accountNumber, accountType);
+            foreach (Accounts acc in customerAccounts)
+            {
+                if (acc.CustomerNumber == customerNumber && acc.AccountID == accountNumber && acc.AccountType == accountType)
+                {
+                    interestRate = acc.Interest;
+                }
+            }
+            double interestAmount = accountBalance * interestRate;
+            accountBalance += interestAmount;
+            return accountBalance;
+        }
+
         public void UpdateAccountBalance(int customerNumber, int accountNumber, string accountType, double newBalance)
         {
             foreach(Accounts acc in customerAccounts)
