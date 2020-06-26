@@ -199,12 +199,12 @@ namespace Home
 
         
 
-        public double GetAccountBalance(int customerNumber, int accountNumber)
+        public double GetAccountBalance(int customerNumber, int accountNumber, string accountType)
         {
             double balance = 0;
             foreach (Accounts acc in customerAccounts)
             {
-                if (acc.CustomerNumber == customerNumber && acc.AccountID == accountNumber)
+                if (acc.CustomerNumber == customerNumber && acc.AccountID == accountNumber && acc.AccountType == accountType)
                 {
                     balance = acc.Balance;
                 }
@@ -212,10 +212,17 @@ namespace Home
             return balance;        
         }
 
-        public double CompleteDeposit(int customerNumber, int accountNumber, int depositAmount)
+        public double CompleteDeposit(int customerNumber, int accountNumber, int depositAmount, string accountType)
         {
-            double previousBalance = GetAccountBalance(customerNumber, accountNumber);
+            double previousBalance = GetAccountBalance(customerNumber, accountNumber, accountType);
             double newBalance = previousBalance + Convert.ToDouble(depositAmount);
+            return newBalance;
+        }
+
+        public double CompleteWithdrawal(int customerNumber, int accountNumber, int withdrawalAmount, string accountType)
+        {
+            double previousBalance = GetAccountBalance(customerNumber, accountNumber, accountType);
+            double newBalance = previousBalance - Convert.ToDouble(withdrawalAmount);
             return newBalance;
         }
 

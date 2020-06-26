@@ -42,10 +42,10 @@
             this.listBoxAccountsTransfer = new System.Windows.Forms.ListBox();
             this.buttonTransfer = new System.Windows.Forms.Button();
             this.groupBoxTransfer = new System.Windows.Forms.GroupBox();
-            this.labelError = new System.Windows.Forms.Label();
             this.buttonCancelTransfer = new System.Windows.Forms.Button();
             this.buttonTransf = new System.Windows.Forms.Button();
             this.textBoxTransfer = new System.Windows.Forms.TextBox();
+            this.labelError = new System.Windows.Forms.Label();
             this.labelCustNum = new System.Windows.Forms.Label();
             this.textBoxEnteredID = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
@@ -176,6 +176,7 @@
             this.listBoxAccountsTransfer.Size = new System.Drawing.Size(238, 356);
             this.listBoxAccountsTransfer.TabIndex = 9;
             this.listBoxAccountsTransfer.Visible = false;
+            this.listBoxAccountsTransfer.SelectedIndexChanged += new System.EventHandler(this.listBoxAccountsTransfer_SelectedIndexChanged);
             // 
             // buttonTransfer
             // 
@@ -190,53 +191,54 @@
             // 
             // groupBoxTransfer
             // 
-            this.groupBoxTransfer.Controls.Add(this.labelError);
             this.groupBoxTransfer.Controls.Add(this.buttonCancelTransfer);
             this.groupBoxTransfer.Controls.Add(this.buttonTransf);
             this.groupBoxTransfer.Controls.Add(this.textBoxTransfer);
-            this.groupBoxTransfer.Location = new System.Drawing.Point(318, 90);
+            this.groupBoxTransfer.Location = new System.Drawing.Point(363, 90);
             this.groupBoxTransfer.Name = "groupBoxTransfer";
-            this.groupBoxTransfer.Size = new System.Drawing.Size(214, 105);
+            this.groupBoxTransfer.Size = new System.Drawing.Size(251, 105);
             this.groupBoxTransfer.TabIndex = 9;
             this.groupBoxTransfer.TabStop = false;
             this.groupBoxTransfer.Visible = false;
             // 
-            // labelError
-            // 
-            this.labelError.AutoSize = true;
-            this.labelError.Location = new System.Drawing.Point(88, 48);
-            this.labelError.Name = "labelError";
-            this.labelError.Size = new System.Drawing.Size(46, 17);
-            this.labelError.TabIndex = 3;
-            this.labelError.Text = "label2";
-            // 
             // buttonCancelTransfer
             // 
-            this.buttonCancelTransfer.Location = new System.Drawing.Point(117, 70);
+            this.buttonCancelTransfer.Location = new System.Drawing.Point(157, 70);
             this.buttonCancelTransfer.Name = "buttonCancelTransfer";
             this.buttonCancelTransfer.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelTransfer.TabIndex = 2;
             this.buttonCancelTransfer.Text = "Cancel";
             this.buttonCancelTransfer.UseVisualStyleBackColor = true;
             this.buttonCancelTransfer.Visible = false;
+            this.buttonCancelTransfer.Click += new System.EventHandler(this.buttonCancelTransfer_Click);
             // 
             // buttonTransf
             // 
             this.buttonTransf.Location = new System.Drawing.Point(19, 70);
             this.buttonTransf.Name = "buttonTransf";
-            this.buttonTransf.Size = new System.Drawing.Size(75, 23);
+            this.buttonTransf.Size = new System.Drawing.Size(114, 23);
             this.buttonTransf.TabIndex = 1;
             this.buttonTransf.Text = "Continue";
             this.buttonTransf.UseVisualStyleBackColor = true;
             this.buttonTransf.Visible = false;
+            this.buttonTransf.Click += new System.EventHandler(this.buttonTransf_Click);
             // 
             // textBoxTransfer
             // 
             this.textBoxTransfer.Location = new System.Drawing.Point(19, 22);
             this.textBoxTransfer.Name = "textBoxTransfer";
-            this.textBoxTransfer.Size = new System.Drawing.Size(176, 22);
+            this.textBoxTransfer.Size = new System.Drawing.Size(226, 22);
             this.textBoxTransfer.TabIndex = 0;
             this.textBoxTransfer.Visible = false;
+            // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(45, 196);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(46, 17);
+            this.labelError.TabIndex = 3;
+            this.labelError.Text = "label2";
             // 
             // labelCustNum
             // 
@@ -271,6 +273,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(946, 631);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.textBoxEnteredID);
             this.Controls.Add(this.labelCustNum);
