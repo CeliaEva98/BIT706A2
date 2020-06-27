@@ -18,6 +18,8 @@ namespace Home
         {
             InitializeComponent();
             labelError.Text = "";
+            control.ReadAccountsBinaryData();
+            control.ReadCustomerBinaryData();
         }
 
 
@@ -27,7 +29,7 @@ namespace Home
             string firstName = "";
             string lastName = "";
             string contactNumberString = "";
-            int contactNumber = 0;
+            long contactNumber = 0;
             Boolean firstNameCorrect = false;
             Boolean lastNameCorrect = false;
             Boolean contactNumberCorrect = false;
@@ -85,7 +87,7 @@ namespace Home
                 }
                 else
                 {
-                    contactNumber = Int32.Parse(contactNumberString);
+                    contactNumber = long.Parse(textBoxContact.Text);
                     contactNumberCorrect = true;
                 }
             }
@@ -145,10 +147,7 @@ namespace Home
             {
                 checkBoxOther.Checked = false;
             }
-            else if (checkBoxOther.Checked == true)
-            {
-                checkBoxStaff.Checked = false;
-            }
+            
         }
 
         private void textBoxContact_TextChanged(object sender, EventArgs e)
@@ -158,7 +157,10 @@ namespace Home
 
         private void checkBoxOther_CheckedChanged(object sender, EventArgs e)
         {
-
+            if (checkBoxOther.Checked)
+            {
+                checkBoxStaff.Checked = false;
+            }
         }
     }
 }

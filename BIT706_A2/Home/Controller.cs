@@ -3,20 +3,73 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace Home
 {
+    [Serializable]
     class Controller
     {
+        
+        
         int nextCustomerID = 1;
         int customerID;
 
         int nextAccountID = 1;
         int accountID;
 
-        public static List<Customer> CustomersList = new List<Customer>();
-        public static List<Accounts> customerAccounts = new List<Accounts>();
+        public List<Customer> CustomersList = new List<Customer>();
+        public List<Accounts> customerAccounts = new List<Accounts>();
         List<Accounts> CorrespondingAccounts = new List<Accounts>();
+
+        public void WriteCustomerBinaryData()
+        {
+            
+            IFormatter formatter = new BinaryFormatter();
+
+            Stream stream = new FileStream("objectsCustomer.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+
+            formatter.Serialize(stream, CustomersList);
+
+
+            stream.Close();
+
+        }
+
+        public void ReadCustomerBinaryData()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("objectsCustomer.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            CustomersList = (List<Customer>)formatter.Deserialize(stream);
+
+            stream.Close();
+        }
+
+        public void WriteAccountsBinaryData()
+        {            
+
+            IFormatter formatter = new BinaryFormatter();
+
+            Stream stream = new FileStream("objectsAccounts.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+
+            formatter.Serialize(stream, customerAccounts);
+
+
+            stream.Close();
+
+        }
+
+        public void ReadAccountsBinaryData()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("objectsAccounts.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+            customerAccounts = (List<Accounts>)formatter.Deserialize(stream);
+
+            stream.Close();
+        }
+
 
         public int setAccountID(int customerNum)
         {
@@ -44,10 +97,12 @@ namespace Home
             return customerID;
         }
 
-        public int CreateCustomer(String custType, String firstName, String lastName, int contactNumber)
+        public int CreateCustomer(String custType, String firstName, String lastName, long contactNumber)
         {
+            
             Customer newCust = new Customer(setCustomerID(), custType, firstName, lastName, contactNumber);
             CustomersList.Add(newCust);
+            WriteCustomerBinaryData();
             return customerID;
         }
 
@@ -82,7 +137,7 @@ namespace Home
            
         }
 
-        public void UpdateCustomerDetails(int customerNumber, string custType, string firstName, string lastName, int contactNumber)
+        public void UpdateCustomerDetails(int customerNumber, string custType, string firstName, string lastName,long contactNumber)
         {
             foreach (Customer cust in CustomersList.ToList())
             {
@@ -136,9 +191,9 @@ namespace Home
             return lastName;
         }
 
-        public int GetContactNumber(int customerNumber)
+        public long GetContactNumber(long customerNumber)
         {
-            int contactNumber = 0;
+            long contactNumber = 0;
             foreach(Customer cust in CustomersList)
             {
                 if(cust.ID == customerNumber)
@@ -194,6 +249,7 @@ namespace Home
 
         public void AddAccount(int customerNumber, string accountType)
         {
+            
             if (accountType == "Omni")
             {
                 Omni newOmni = new Omni(customerNumber, setAccountID(customerNumber));
@@ -209,7 +265,7 @@ namespace Home
                 Everyday newEveryday = new Everyday(customerNumber, setAccountID(customerNumber));
                 customerAccounts.Add(newEveryday);
             }
-
+            WriteAccountsBinaryData();
             
         }
 
@@ -249,7 +305,7 @@ namespace Home
             int customerID;
             string customerFirstName = "";
             string customerLastName = "";
-            int customerContact = 0;
+            long customerContact = 0;
 
             Customer result = FindCustomer(customerNumber);
             if (result == null)

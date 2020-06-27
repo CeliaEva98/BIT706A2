@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Home
 {
+    [Serializable]
     class Customer
     {
         int customerID;
         String customerFirstName;
         String customerLastName;
-        int customerContactNum;
+        long customerContactNum;
         String custType;
         public IFeesStrategy myFeesStrategy;
         
@@ -26,7 +27,7 @@ namespace Home
             myFeesStrategy = newStrategy;
         }
 
-        public Customer(int customerIDNum, string customerType, string firstName, string lastName, int contactNum)
+        public Customer(int customerIDNum, string customerType, string firstName, string lastName, long contactNum)
         {
             customerID = customerIDNum;
             custType = customerType;
@@ -38,7 +39,7 @@ namespace Home
         public int ID { get => customerID; set => customerID = value; }
         public string firstName { get => customerFirstName; set => customerFirstName = value; }
         public string lastName { get => customerLastName; set => customerLastName = value; }
-        public int contactNum { get => customerContactNum; set => customerContactNum = value; }
+        public long contactNum { get => customerContactNum; set => customerContactNum = value; }
         public string customerType { get => custType; set => custType = value; }
     }
     

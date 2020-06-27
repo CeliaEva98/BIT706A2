@@ -18,6 +18,8 @@ namespace Home
             
             InitializeComponent();
             labelUserMessage.Text = "";
+            control.ReadAccountsBinaryData();
+            control.ReadCustomerBinaryData();
             
         }
 
@@ -38,7 +40,7 @@ namespace Home
             textBoxLastName.Text = custLastName;
         }
 
-        public void setContactNum(int custContactNum)
+        public void setContactNum(long custContactNum)
         {
             textBoxContact.Text = custContactNum.ToString();
         }
@@ -60,7 +62,7 @@ namespace Home
             int customerID = Int32.Parse(labelIDNum.Text);
             string customerFirstName = textBoxFirstName.Text;
             string customerLastName = textBoxLastName.Text;
-            int customerContactNum = Int32.Parse(textBoxContact.Text);
+            long customerContactNum = Convert.ToInt64(textBoxContact.Text);
             string customerType = "";
 
             if(checkBoxOther.Checked)

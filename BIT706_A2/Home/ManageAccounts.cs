@@ -32,6 +32,8 @@ namespace Home
             InitializeComponent();
             labelError.Text = "";
             labelCustDetails.Text = "";
+            control.ReadCustomerBinaryData();
+            control.ReadAccountsBinaryData();
             
         }
 
@@ -378,6 +380,13 @@ namespace Home
             double newAccountBal = control.getInterest(Int32.Parse(labelCustDetails.Text), selectedAccountID, selectedAccountType);
             control.UpdateAccountBalance(Int32.Parse(labelCustDetails.Text), selectedAccountID, selectedAccountType, newAccountBal);
             populateListBox(Int32.Parse(labelCustDetails.Text));
+        }
+
+        private void buttonReturn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home homeScreen = new Home();
+            homeScreen.Show();
         }
     }
 }
