@@ -24,6 +24,9 @@ namespace Home
         public List<Accounts> customerAccounts = new List<Accounts>();
         List<Accounts> CorrespondingAccounts = new List<Accounts>();
 
+        /// <summary>
+        /// Code to write customer details to a file
+        /// </summary>
         public void WriteCustomerBinaryData()
         {
             
@@ -37,7 +40,9 @@ namespace Home
             stream.Close();
 
         }
-
+        /// <summary>
+        /// Code to read customer details from the file 
+        /// </summary>
         public void ReadCustomerBinaryData()
         {
             IFormatter formatter = new BinaryFormatter();
@@ -46,7 +51,9 @@ namespace Home
 
             stream.Close();
         }
-
+        /// <summary>
+        /// Code to write customer accounts information to file
+        /// </summary>
         public void WriteAccountsBinaryData()
         {            
 
@@ -60,7 +67,9 @@ namespace Home
             stream.Close();
 
         }
-
+        /// <summary>
+        /// Code to read customer accounts information from file
+        /// </summary>
         public void ReadAccountsBinaryData()
         {
             IFormatter formatter = new BinaryFormatter();
@@ -70,7 +79,11 @@ namespace Home
             stream.Close();
         }
 
-
+        /// <summary>
+        /// Code to ensure that when a new account is created that the account IDs are not same
+        /// </summary>
+        /// <param name="customerNum">The unique number allocated to a customer</param>
+        /// <returns>Returns the new account ID or an error based on where the code ends</returns>
         public int setAccountID(int customerNum)
         {
             foreach (Accounts acc in customerAccounts)
@@ -90,13 +103,25 @@ namespace Home
             return errorEnd;
         }
 
+        /// <summary>
+        /// Code to create a unique ID number for the new customers
+        /// </summary>
+        /// <returns>Returns the new customer ID for the new customer</returns>
         public int setCustomerID()
         {
             customerID = nextCustomerID;
             nextCustomerID++;
             return customerID;
         }
-
+        /// <summary>
+        /// Code to create a new customer, add them to the customer list and write their 
+        /// details to the customer file 
+        /// </summary>
+        /// <param name="custType">The type of customer; either Bank staff or other</param>
+        /// <param name="firstName">Customer first name</param>
+        /// <param name="lastName">Customer last name</param>
+        /// <param name="contactNumber">Customer contact number</param>
+        /// <returns>Returns the unique Id related to the new customer</returns>
         public int CreateCustomer(String custType, String firstName, String lastName, long contactNumber)
         {
             
@@ -106,12 +131,21 @@ namespace Home
             return customerID;
         }
 
+        /// <summary>
+        /// code to remove a customer that has already been added
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
         public void DeleteCustomer(int customerNumber)
         {
             Customer retrievedCustomer = FindCustomer(customerNumber);
             CustomersList.Remove(retrievedCustomer);
         }
-        
+
+        /// <summary>
+        /// Code to get the type of customer that has been entered
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <returns>Returns the customer type for the customer number; either bank staff or other</returns>
         public string GetCustomerType(int customerNumber)
         {
             string customerType = "";
@@ -125,6 +159,10 @@ namespace Home
             return customerType;
         }
 
+        /// <summary>
+        /// Code to edit the details of a customer that has already been added
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
         public void EditCustomer(int customerNumber)
         {
             EditCustomer newEdit = new EditCustomer();
@@ -137,6 +175,14 @@ namespace Home
            
         }
 
+        /// <summary>
+        /// Code to update the details of a customer that has already been added
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <param name="custType">The type of customer; either bank staff or other</param>
+        /// <param name="firstName">The first name of the customer</param>
+        /// <param name="lastName">The last name of the customer</param>
+        /// <param name="contactNumber">The contact number of the customer</param>
         public void UpdateCustomerDetails(int customerNumber, string custType, string firstName, string lastName,long contactNumber)
         {
             foreach (Customer cust in CustomersList.ToList())
@@ -151,6 +197,13 @@ namespace Home
             CustomersList.Add(newCustomer);
         }
 
+        /// <summary>
+        /// Code to find if a customer exists based on their customer number, returning their
+        /// customer object if they exist
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <returns>Returns the customer object related to the customer number if customer exists,
+        /// otherwise null returned</returns>
         public Customer FindCustomer(int customerNumber)
         {
             foreach(Customer cust in CustomersList)
@@ -165,6 +218,11 @@ namespace Home
             return null;
         }
 
+        /// <summary>
+        /// Code to get the first name of a customer from their customer number
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <returns>Returns the first name of a customer if their customer number is found</returns>
         public string GetFirstName(int customerNumber)
         {
             string firstName = "";
@@ -178,6 +236,11 @@ namespace Home
             return firstName;
         }
 
+        /// <summary>
+        /// Code to get the last name of a customer from their customer number
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <returns>Returns the last name of a customer if their customer number is found</returns>
         public string GetLastName(int customerNumber)
         {
             string lastName = "";
@@ -191,6 +254,11 @@ namespace Home
             return lastName;
         }
 
+        /// <summary>
+        /// Code to get the contact number of a customer from their customer number
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <returns>Returns the customer number of a customer if their customer number is found</returns>
         public long GetContactNumber(long customerNumber)
         {
             long contactNumber = 0;
@@ -204,6 +272,11 @@ namespace Home
             return contactNumber;
         }
 
+        /// <summary>
+        /// Code to get any accounts linked to a customers customer number
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <returns>Returns the accounts related to the customer number of a customer</returns>
         public List<Accounts> GetCustomerAccounts(int customerNumber)
         {
             CorrespondingAccounts.Clear();
@@ -219,6 +292,13 @@ namespace Home
             return CorrespondingAccounts;
         }
 
+        /// <summary>
+        /// Code to get the amount of interest to be added to a certain account
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <param name="accountNumber">The unique number allocated to a customer's account</param>
+        /// <param name="accountType">The type of account; either omni, investment or everyday</param>
+        /// <returns>Returns the amount of interest required to be added to an account</returns>
         public double getInterest(int customerNumber, int accountNumber, string accountType)
         {
             double interestRate = 0;
@@ -235,6 +315,13 @@ namespace Home
             return accountBalance;
         }
 
+        /// <summary>
+        /// Code to update the balance of a given customer account
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <param name="accountNumber">The unique number allocated to a customer's account</param>
+        /// <param name="accountType">The type of account; either omni, investment or everyday</param>
+        /// <param name="newBalance">The new balance of the account after a change to the balance</param>
         public void UpdateAccountBalance(int customerNumber, int accountNumber, string accountType, double newBalance)
         {
             foreach(Accounts acc in customerAccounts)
@@ -247,6 +334,11 @@ namespace Home
 
         }
 
+        /// <summary>
+        /// Code to add a new customer account to an existing customer
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <param name="accountType">The type of account; either omni, investment or everyday</param>
         public void AddAccount(int customerNumber, string accountType)
         {
             
@@ -270,7 +362,14 @@ namespace Home
         }
 
         
-
+        /// <summary>
+        /// Code to get the balance of an account related to a customer number, account number
+        /// and account type
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <param name="accountNumber">The unique number allocated to a customer's account</param>
+        /// <param name="accountType">The type of account; either omni, investment or everyday</param>
+        /// <returns>Returns the balance of an account associated with the given parameter details</returns>
         public double GetAccountBalance(int customerNumber, int accountNumber, string accountType)
         {
             double balance = 0;
@@ -284,6 +383,14 @@ namespace Home
             return balance;        
         }
 
+        /// <summary>
+        /// Code to calculate the new balance of an account for a deposit
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <param name="accountNumber">The unique number allocated to a customer's account(s)</param>
+        /// <param name="depositAmount">The amount required to be deposited into the specified account</param>
+        /// <param name="accountType">The type of account; either omni, investment or everyday</param>
+        /// <returns>Returns the new balance following the deposit</returns>
         public double CompleteDeposit(int customerNumber, int accountNumber, int depositAmount, string accountType)
         {
             double previousBalance = GetAccountBalance(customerNumber, accountNumber, accountType);
@@ -291,6 +398,14 @@ namespace Home
             return newBalance;
         }
 
+        /// <summary>
+        /// Code to calculate the new balance of an account for a withdrawal
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <param name="accountNumber">The unique number allocated to a customer's account</param>
+        /// <param name="withdrawalAmount">The amount required to be withdrawn from a given account</param>
+        /// <param name="accountType">The type of account; either omni, investment or everyday</param>
+        /// <returns>Returns the new balance following the withdrawal</returns>
         public double CompleteWithdrawal(int customerNumber, int accountNumber, int withdrawalAmount, string accountType)
         {
             double previousBalance = GetAccountBalance(customerNumber, accountNumber, accountType);
@@ -298,6 +413,13 @@ namespace Home
             return newBalance;
         }
 
+
+        /// <summary>
+        /// Code to display the information of a customer from their customer number if the customer
+        /// already exists
+        /// </summary>
+        /// <param name="customerNumber">The unique number allocated to a customer</param>
+        /// <returns>Returns the ID number, first name, last name and contact number of a customer</returns>
         public string CustomerInfoDisplay(int customerNumber)
         {
             string displayString;
