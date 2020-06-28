@@ -53,6 +53,18 @@
     },
     {
       "type": "ManagedReference",
+      "source_relative_path": "obj/api/Home.Accounts.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Home.Accounts.html",
+          "hash": "hc92Qbb+3Zf7xOw4kVKf8Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
       "source_relative_path": "obj/api/Home.AddAccount.yml",
       "output": {
         ".html": {
@@ -73,6 +85,18 @@
         }
       },
       "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Home.Controller.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Home.Controller.html",
+          "hash": "MHIgSWsNgDgaX3POp0T+bw=="
+        }
+      },
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -153,10 +177,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Home.html",
-          "hash": "rfCfbLn9bG8/MbIONZsScg=="
+          "hash": "q24vXyqf1v4yVeVZatPYcQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -165,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "sboC0CC8l2ls2WyuCMnyYg=="
+          "hash": "kKJnXkdAyXDoBC4OnodVSQ=="
         }
       },
       "is_incremental": false,
@@ -202,8 +226,8 @@
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 9,
-          "skipped_file_count": 9
+          "total_file_count": 11,
+          "skipped_file_count": 10
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

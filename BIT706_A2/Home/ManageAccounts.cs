@@ -134,7 +134,8 @@ namespace Home
                 double previousBalance = control.GetAccountBalance(customerID, selectedAccountID, selectedAccountType);
                 if (previousBalance >= enteredAmount)
                 {
-                    double newBalance = control.CompleteWithdrawal(customerID, selectedAccountID, enteredAmount, selectedAccountType);
+                    Boolean withdrawPossible = control.CompleteWithdrawal(customerID, selectedAccountID, enteredAmount, selectedAccountType);
+                    double newBalance = control.WithdrawalSuccessBalance(previousBalance, enteredAmount);
                     control.UpdateAccountBalance(Int32.Parse(labelCustDetails.Text), selectedAccountID, selectedAccountType, newBalance);
                     populateListBox(Int32.Parse(labelCustDetails.Text));
                     hideAmountsGroupBoxItems();

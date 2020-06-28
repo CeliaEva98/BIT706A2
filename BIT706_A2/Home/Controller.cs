@@ -10,7 +10,7 @@ using System.IO;
 namespace Home
 {
     [Serializable]
-    class Controller
+    public class Controller
     {
         
         
@@ -26,7 +26,9 @@ namespace Home
         List<Accounts> CorrespondingAccounts = new List<Accounts>();
 
         
-
+        /// <summary>
+        /// Code required to write the data relating to customer accounts to file
+        /// </summary>
         public void WriteAccountsBinaryData()
         {
             IFormatter formatter = new BinaryFormatter();
@@ -35,6 +37,9 @@ namespace Home
             stream.Close();
         }
 
+        /// <summary>
+        /// Code required to write the data relating to customer details to file
+        /// </summary>
         public void WriteCustomersBinaryData()
         {
             IFormatter formatter = new BinaryFormatter();
@@ -43,6 +48,9 @@ namespace Home
             stream.Close();
         }
 
+        /// <summary>
+        /// Code required to read the data relating to customer accounts from the file to the Accounts list
+        /// </summary>
         public void ReadAccountsData()
         {
             
@@ -56,6 +64,9 @@ namespace Home
 
         }
 
+        /// <summary>
+        /// Code required to read the data relating to customer details from the file to the Customer list
+        /// </summary>
         public void ReadCustomerData()
         {
             IFormatter formatter = new BinaryFormatter();
@@ -139,6 +150,7 @@ namespace Home
         {
             Customer retrievedCustomer = FindCustomer(customerNumber);
             CustomersList.Remove(retrievedCustomer);
+            WriteCustomersBinaryData();
         }
 
         /// <summary>
@@ -407,19 +419,41 @@ namespace Home
         }
 
         /// <summary>
-        /// Code to calculate the new balance of an account for a withdrawal
+        /// Code to calculate whether an account is able to have the amount successfully withdrawn
         /// </summary>
         /// <param name="customerNumber">The unique number allocated to a customer</param>
         /// <param name="accountNumber">The unique number allocated to a customer's account</param>
         /// <param name="withdrawalAmount">The amount required to be withdrawn from a given account</param>
         /// <param name="accountType">The type of account; either omni, investment or everyday</param>
-        /// <returns>Returns the new balance following the withdrawal</returns>
-        public double CompleteWithdrawal(int customerNumber, int accountNumber, int withdrawalAmount, string accountType)
+        /// <returns>Returns true if the account can withdraw the requested amount without entering a 
+        /// negative amount. Returns false if a negative amount will be returned</returns>
+        public Boolean CompleteWithdrawal(int customerNumber, int accountNumber, int withdrawalAmount, string accountType)
         {
             double previousBalance = GetAccountBalance(customerNumber, accountNumber, accountType);
-            double newBalance = previousBalance - Convert.ToDouble(withdrawalAmount);
-            return newBalance;
+            if (previousBalance < withdrawalAmount)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+   
         }
+
+        /// <summary>
+        /// Code used to calculate the new balance after a withdrawal from an account
+        /// </summary>
+        /// <param name="previousBal">Previous balance of the account prior to withdrawal</param>
+        /// <param name="withdrawalAmount">Amount required to be withdrawn from the account's balance</param>
+        /// <returns>The new balance for the account after the withdrawal is returned</returns>
+        public double WithdrawalSuccessBalance(double previousBal, int withdrawalAmount)
+        {
+            double doubleWithdrawal = Convert.ToDouble(withdrawalAmount);
+            double newBal = previousBal - withdrawalAmount;
+            return newBal;
+        }
+        
 
 
         /// <summary>
