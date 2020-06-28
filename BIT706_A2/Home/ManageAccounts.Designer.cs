@@ -49,6 +49,7 @@
             this.labelCustNum = new System.Windows.Forms.Label();
             this.textBoxEnteredID = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
+            this.buttonReturn = new System.Windows.Forms.Button();
             this.groupBoxAmounts.SuspendLayout();
             this.groupBoxTransfer.SuspendLayout();
             this.SuspendLayout();
@@ -124,6 +125,7 @@
             this.buttonAddInterest.Text = "Add Interest";
             this.buttonAddInterest.UseVisualStyleBackColor = true;
             this.buttonAddInterest.Visible = false;
+            this.buttonAddInterest.Click += new System.EventHandler(this.buttonAddInterest_Click);
             // 
             // groupBoxAmounts
             // 
@@ -267,12 +269,23 @@
             this.buttonSearch.UseVisualStyleBackColor = true;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
+            // buttonReturn
+            // 
+            this.buttonReturn.Location = new System.Drawing.Point(796, 537);
+            this.buttonReturn.Name = "buttonReturn";
+            this.buttonReturn.Size = new System.Drawing.Size(138, 67);
+            this.buttonReturn.TabIndex = 14;
+            this.buttonReturn.Text = "Return to menu";
+            this.buttonReturn.UseVisualStyleBackColor = true;
+            this.buttonReturn.Click += new System.EventHandler(this.buttonReturn_Click);
+            // 
             // ManageAccounts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(946, 631);
+            this.Controls.Add(this.buttonReturn);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.textBoxEnteredID);
@@ -322,5 +335,6 @@
         private System.Windows.Forms.Label labelCustNum;
         private System.Windows.Forms.TextBox textBoxEnteredID;
         private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Button buttonReturn;
     }
 }

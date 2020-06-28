@@ -32,6 +32,8 @@ namespace Home
             InitializeComponent();
             labelError.Text = "";
             labelCustDetails.Text = "";
+            control.ReadCustomerData();
+            control.ReadAccountsData();
             
         }
 
@@ -132,7 +134,8 @@ namespace Home
                 double previousBalance = control.GetAccountBalance(customerID, selectedAccountID, selectedAccountType);
                 if (previousBalance >= enteredAmount)
                 {
-                    double newBalance = control.CompleteWithdrawal(customerID, selectedAccountID, enteredAmount, selectedAccountType);
+                    Boolean withdrawPossible = control.CompleteWithdrawal(customerID, selectedAccountID, enteredAmount, selectedAccountType);
+                    double newBalance = control.WithdrawalSuccessBalance(previousBalance, enteredAmount);
                     control.UpdateAccountBalance(Int32.Parse(labelCustDetails.Text), selectedAccountID, selectedAccountType, newBalance);
                     populateListBox(Int32.Parse(labelCustDetails.Text));
                     hideAmountsGroupBoxItems();
@@ -282,7 +285,7 @@ namespace Home
                 }
                 else
                 {
-                    labelError.Text = "Please only entered numbers for the ID. Please try again.";
+                    labelError.Text = "Please only enter numbers for the ID. Please try again.";
                     textBoxEnteredID.Text = "";
                 }
                 
@@ -371,6 +374,20 @@ namespace Home
         private void buttonCancelTransfer_Click(object sender, EventArgs e)
         {
             hideTransferGroupBoxItems();
+        }
+
+        private void buttonAddInterest_Click(object sender, EventArgs e)
+        {
+            double newAccountBal = control.getInterest(Int32.Parse(labelCustDetails.Text), selectedAccountID, selectedAccountType);
+            control.UpdateAccountBalance(Int32.Parse(labelCustDetails.Text), selectedAccountID, selectedAccountType, newAccountBal);
+            populateListBox(Int32.Parse(labelCustDetails.Text));
+        }
+
+        private void buttonReturn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home homeScreen = new Home();
+            homeScreen.Show();
         }
     }
 }

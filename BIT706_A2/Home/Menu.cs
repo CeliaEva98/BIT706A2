@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
+
 namespace Home
 {
     public partial class Menu : Form
@@ -24,7 +25,7 @@ namespace Home
         {
             InitializeComponent();
             labelDisplay.Text = "";
-
+            control.ReadCustomerData();
 
         }
 
@@ -37,13 +38,14 @@ namespace Home
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
+            
             string customerDisplay = "";
             
-            if (Controller.CustomersList.Count == 0)
+            if (control.CustomersList.Count == 0)
             {
                 labelDisplay.Text = "No customers in database. Please add customers first";
             }
-            else if (Controller.CustomersList.Count != 0)
+            else if (control.CustomersList.Count != 0)
             {
                 enteredIDString = textBoxID.Text;
                 if (enteredIDString.All(Char.IsNumber) != true)
@@ -92,6 +94,13 @@ namespace Home
                 control.EditCustomer(customerID);
                 
             }
+        }
+
+        private void buttonReturn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home newHome = new Home();
+            newHome.Show();
         }
     }
 }

@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.labelDisplay = new System.Windows.Forms.Label();
+            this.buttonReturn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +66,7 @@
             // 
             this.buttonDelete.BackColor = System.Drawing.Color.LightGray;
             this.buttonDelete.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDelete.Location = new System.Drawing.Point(555, 509);
+            this.buttonDelete.Location = new System.Drawing.Point(313, 509);
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(184, 65);
             this.buttonDelete.TabIndex = 3;
@@ -123,12 +124,24 @@
             this.labelDisplay.TabIndex = 8;
             this.labelDisplay.Text = "label3";
             // 
+            // buttonReturn
+            // 
+            this.buttonReturn.Font = new System.Drawing.Font("Perpetua Titling MT", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonReturn.Location = new System.Drawing.Point(576, 509);
+            this.buttonReturn.Name = "buttonReturn";
+            this.buttonReturn.Size = new System.Drawing.Size(184, 65);
+            this.buttonReturn.TabIndex = 9;
+            this.buttonReturn.Text = "Return to Menu";
+            this.buttonReturn.UseVisualStyleBackColor = true;
+            this.buttonReturn.Click += new System.EventHandler(this.buttonReturn_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cornsilk;
             this.ClientSize = new System.Drawing.Size(800, 627);
+            this.Controls.Add(this.buttonReturn);
             this.Controls.Add(this.labelDisplay);
             this.Controls.Add(this.textBoxID);
             this.Controls.Add(this.label2);
@@ -154,5 +167,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxID;
         private System.Windows.Forms.Label labelDisplay;
+        private System.Windows.Forms.Button buttonReturn;
     }
 }

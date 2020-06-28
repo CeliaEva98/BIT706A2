@@ -18,6 +18,7 @@ namespace Home
             
             InitializeComponent();
             labelUserMessage.Text = "";
+            control.ReadCustomerData();
             
         }
 
@@ -38,9 +39,23 @@ namespace Home
             textBoxLastName.Text = custLastName;
         }
 
-        public void setContactNum(int custContactNum)
+        public void setContactNum(long custContactNum)
         {
             textBoxContact.Text = custContactNum.ToString();
+        }
+
+        public void setCustType(string custType)
+        {
+            checkBoxStaff.Checked = false;
+            checkBoxOther.Checked = false;
+            if (custType == "Other")
+            {
+                checkBoxOther.Checked = true;
+            }
+            else
+            {
+                checkBoxStaff.Checked = true;
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -60,7 +75,7 @@ namespace Home
             int customerID = Int32.Parse(labelIDNum.Text);
             string customerFirstName = textBoxFirstName.Text;
             string customerLastName = textBoxLastName.Text;
-            int customerContactNum = Int32.Parse(textBoxContact.Text);
+            long customerContactNum = Convert.ToInt64(textBoxContact.Text);
             string customerType = "";
 
             if(checkBoxOther.Checked)

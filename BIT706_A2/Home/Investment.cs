@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Home
 {
+    [Serializable]
     class Investment : Accounts
     {
         public Investment():base()

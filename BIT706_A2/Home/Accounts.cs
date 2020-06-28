@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Home
 {
-    class Accounts
+    [Serializable]
+    public class Accounts
     {
         protected int customerNumber;
         protected string accountType;

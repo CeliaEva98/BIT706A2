@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Home
 {
+    
     class BankStaff : Customer, IFeesStrategy
     {
         public string CalcFine()
