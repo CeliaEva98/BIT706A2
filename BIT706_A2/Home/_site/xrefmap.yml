@@ -114,32 +114,6 @@ references:
   isSpec: "True"
   fullName: Home.Accounts.CustomerNumber
   nameWithType: Accounts.CustomerNumber
-- uid: Home.Accounts.deposit(System.Double)
-  name: deposit(Double)
-  href: api/Home.Accounts.html#Home_Accounts_deposit_System_Double_
-  commentId: M:Home.Accounts.deposit(System.Double)
-  fullName: Home.Accounts.deposit(System.Double)
-  nameWithType: Accounts.deposit(Double)
-- uid: Home.Accounts.deposit*
-  name: deposit
-  href: api/Home.Accounts.html#Home_Accounts_deposit_
-  commentId: Overload:Home.Accounts.deposit
-  isSpec: "True"
-  fullName: Home.Accounts.deposit
-  nameWithType: Accounts.deposit
-- uid: Home.Accounts.depositMessage(System.Double)
-  name: depositMessage(Double)
-  href: api/Home.Accounts.html#Home_Accounts_depositMessage_System_Double_
-  commentId: M:Home.Accounts.depositMessage(System.Double)
-  fullName: Home.Accounts.depositMessage(System.Double)
-  nameWithType: Accounts.depositMessage(Double)
-- uid: Home.Accounts.depositMessage*
-  name: depositMessage
-  href: api/Home.Accounts.html#Home_Accounts_depositMessage_
-  commentId: Overload:Home.Accounts.depositMessage
-  isSpec: "True"
-  fullName: Home.Accounts.depositMessage
-  nameWithType: Accounts.depositMessage
 - uid: Home.Accounts.Fee
   name: Fee
   href: api/Home.Accounts.html#Home_Accounts_Fee
@@ -236,45 +210,6 @@ references:
   commentId: F:Home.Accounts.overdraftLimit
   fullName: Home.Accounts.overdraftLimit
   nameWithType: Accounts.overdraftLimit
-- uid: Home.Accounts.withdraw(System.Int32)
-  name: withdraw(Int32)
-  href: api/Home.Accounts.html#Home_Accounts_withdraw_System_Int32_
-  commentId: M:Home.Accounts.withdraw(System.Int32)
-  fullName: Home.Accounts.withdraw(System.Int32)
-  nameWithType: Accounts.withdraw(Int32)
-- uid: Home.Accounts.withdraw*
-  name: withdraw
-  href: api/Home.Accounts.html#Home_Accounts_withdraw_
-  commentId: Overload:Home.Accounts.withdraw
-  isSpec: "True"
-  fullName: Home.Accounts.withdraw
-  nameWithType: Accounts.withdraw
-- uid: Home.Accounts.withdrawStatement(System.Boolean,System.Int32)
-  name: withdrawStatement(Boolean, Int32)
-  href: api/Home.Accounts.html#Home_Accounts_withdrawStatement_System_Boolean_System_Int32_
-  commentId: M:Home.Accounts.withdrawStatement(System.Boolean,System.Int32)
-  fullName: Home.Accounts.withdrawStatement(System.Boolean, System.Int32)
-  nameWithType: Accounts.withdrawStatement(Boolean, Int32)
-- uid: Home.Accounts.withdrawStatement*
-  name: withdrawStatement
-  href: api/Home.Accounts.html#Home_Accounts_withdrawStatement_
-  commentId: Overload:Home.Accounts.withdrawStatement
-  isSpec: "True"
-  fullName: Home.Accounts.withdrawStatement
-  nameWithType: Accounts.withdrawStatement
-- uid: Home.Accounts.withdrawSuccess(System.Int32)
-  name: withdrawSuccess(Int32)
-  href: api/Home.Accounts.html#Home_Accounts_withdrawSuccess_System_Int32_
-  commentId: M:Home.Accounts.withdrawSuccess(System.Int32)
-  fullName: Home.Accounts.withdrawSuccess(System.Int32)
-  nameWithType: Accounts.withdrawSuccess(Int32)
-- uid: Home.Accounts.withdrawSuccess*
-  name: withdrawSuccess
-  href: api/Home.Accounts.html#Home_Accounts_withdrawSuccess_
-  commentId: Overload:Home.Accounts.withdrawSuccess
-  isSpec: "True"
-  fullName: Home.Accounts.withdrawSuccess
-  nameWithType: Accounts.withdrawSuccess
 - uid: Home.AddAccount
   name: AddAccount
   href: api/Home.AddAccount.html

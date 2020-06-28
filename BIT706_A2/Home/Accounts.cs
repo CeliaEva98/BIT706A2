@@ -81,57 +81,6 @@ namespace Home
             set { accountFee = value; }
         }
 
-        public double deposit(double depositValue)
-        {
-            previousBalance = accountBalance;
-            accountBalance += depositValue;
-            return accountBalance;
-        }
-
-        public string depositMessage(double depositValue)
-        {
-            String depositMessage = accountType + accountID + "; Deposit: $" + depositValue + "; Previous Balance: $" +
-                previousBalance + "; New Balance: $" + accountBalance + "; Successful Deposit!";
-            return depositMessage;
-        }
-
-        public double withdraw(int withdrawValue)
-        {
-            Boolean withdrawalSuccess = withdrawSuccess(withdrawValue);
-            if (withdrawalSuccess == false)
-            {
-
-                return accountBalance;
-            }
-            else
-            {
-                accountBalance -= withdrawValue;
-                return accountBalance;
-            }
-        }
-
-        public string withdrawStatement(Boolean success, int withdrawValue)
-        {
-            if (success)
-            {
-                String successString = accountType + accountID + "; Withdraw: $" + withdrawValue + "; Balance: $" + accountBalance;
-                return successString;
-            }
-            String failString = accountType + accountID + "; Withdraw: $" + withdrawValue + "; Withdraw failed; Fee: $" + accountFee + "; Balance: $"
-                + accountBalance;
-            return failString;
-
-        }
-
-        public Boolean withdrawSuccess(int withdrawValue)
-        {
-            if (withdrawValue > Balance)
-            {
-                return false;
-            }
-            return true;
-        }
-
         public double interestAmt()
         {
             interestTotal = accountBalance * interestRate;
