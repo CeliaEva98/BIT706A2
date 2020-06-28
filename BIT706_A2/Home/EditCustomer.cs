@@ -18,8 +18,7 @@ namespace Home
             
             InitializeComponent();
             labelUserMessage.Text = "";
-            control.ReadAccountsBinaryData();
-            control.ReadCustomerBinaryData();
+            control.ReadCustomerData();
             
         }
 
@@ -43,6 +42,20 @@ namespace Home
         public void setContactNum(long custContactNum)
         {
             textBoxContact.Text = custContactNum.ToString();
+        }
+
+        public void setCustType(string custType)
+        {
+            checkBoxStaff.Checked = false;
+            checkBoxOther.Checked = false;
+            if (custType == "Other")
+            {
+                checkBoxOther.Checked = true;
+            }
+            else
+            {
+                checkBoxStaff.Checked = true;
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)

@@ -18,8 +18,7 @@ namespace Home
         {
             InitializeComponent();
             labelError.Text = "";
-            control.ReadAccountsBinaryData();
-            control.ReadCustomerBinaryData();
+            
         }
 
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Home
 {
-    interface IFeesStrategy
+    public interface IFeesStrategy
     {
         string CalcFine();
     }

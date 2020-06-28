@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Home
 {
+    [Serializable]
     class Everyday : Accounts
     {
         public Everyday():base()

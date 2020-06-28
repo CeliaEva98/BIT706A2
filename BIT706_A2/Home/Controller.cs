@@ -14,69 +14,57 @@ namespace Home
     {
         
         
-        int nextCustomerID = 1;
+        int nextCustomerID = 0;
         int customerID;
 
         int nextAccountID = 1;
         int accountID;
 
+        
         public List<Customer> CustomersList = new List<Customer>();
         public List<Accounts> customerAccounts = new List<Accounts>();
         List<Accounts> CorrespondingAccounts = new List<Accounts>();
 
-        /// <summary>
-        /// Code to write customer details to a file
-        /// </summary>
-        public void WriteCustomerBinaryData()
+        
+
+        public void WriteAccountsBinaryData()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("SerializeAccounts.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, customerAccounts);
+            stream.Close();
+        }
+
+        public void WriteCustomersBinaryData()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("SerializeCustomer.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, CustomersList);
+            stream.Close();
+        }
+
+        public void ReadAccountsData()
         {
             
             IFormatter formatter = new BinaryFormatter();
-
-            Stream stream = new FileStream("objectsCustomer.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-
-            formatter.Serialize(stream, CustomersList);
-
-
-            stream.Close();
+            
+                Stream stream = new FileStream("SerializeAccounts.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+                customerAccounts = (List<Accounts>)formatter.Deserialize(stream);
+                stream.Close();
+            
+            
 
         }
-        /// <summary>
-        /// Code to read customer details from the file 
-        /// </summary>
-        public void ReadCustomerBinaryData()
+
+        public void ReadCustomerData()
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("objectsCustomer.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            CustomersList = (List<Customer>)formatter.Deserialize(stream);
-
-            stream.Close();
-        }
-        /// <summary>
-        /// Code to write customer accounts information to file
-        /// </summary>
-        public void WriteAccountsBinaryData()
-        {            
-
-            IFormatter formatter = new BinaryFormatter();
-
-            Stream stream = new FileStream("objectsAccounts.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-
-            formatter.Serialize(stream, customerAccounts);
-
-
-            stream.Close();
-
-        }
-        /// <summary>
-        /// Code to read customer accounts information from file
-        /// </summary>
-        public void ReadAccountsBinaryData()
-        {
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream("objectsAccounts.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-            customerAccounts = (List<Accounts>)formatter.Deserialize(stream);
-
-            stream.Close();
+            
+                Stream stream = new FileStream("SerializeCustomer.bin", FileMode.Open, FileAccess.Read, FileShare.Read);            
+                CustomersList = (List<Customer>)formatter.Deserialize(stream);
+                stream.Close();
+            
+            
         }
 
         /// <summary>
@@ -84,11 +72,12 @@ namespace Home
         /// </summary>
         /// <param name="customerNum">The unique number allocated to a customer</param>
         /// <returns>Returns the new account ID or an error based on where the code ends</returns>
-        public int setAccountID(int customerNum)
+        public int setAccountID(int customerNum, string accType)
         {
+            
             foreach (Accounts acc in customerAccounts)
             {
-                if (acc.CustomerNumber == customerNum && acc.AccountID == nextAccountID)
+                if (acc.CustomerNumber == customerNum && acc.AccountID == nextAccountID && acc.AccountType == accType)
                 {
                     nextAccountID++;
                 }
@@ -99,8 +88,7 @@ namespace Home
                     return accountID;
                 }
             }
-            int errorEnd = 0;
-            return errorEnd;
+            return nextAccountID;
         }
 
         /// <summary>
@@ -109,8 +97,20 @@ namespace Home
         /// <returns>Returns the new customer ID for the new customer</returns>
         public int setCustomerID()
         {
-            customerID = nextCustomerID;
-            nextCustomerID++;
+            ReadCustomerData();
+            
+            foreach(Customer cust in CustomersList)
+            {
+                if (cust.ID == nextCustomerID)
+                {
+                    nextCustomerID++;
+                }
+                else
+                {
+                    customerID = nextCustomerID;
+                }
+            }
+            
             return customerID;
         }
         /// <summary>
@@ -127,7 +127,7 @@ namespace Home
             
             Customer newCust = new Customer(setCustomerID(), custType, firstName, lastName, contactNumber);
             CustomersList.Add(newCust);
-            WriteCustomerBinaryData();
+            WriteCustomersBinaryData();
             return customerID;
         }
 
@@ -171,9 +171,11 @@ namespace Home
             newEdit.setFirstName(GetFirstName(customerNumber));
             newEdit.setLastName(GetLastName(customerNumber));
             newEdit.setContactNum(GetContactNumber(customerNumber));
-
+            newEdit.setCustType(GetCustomerType(customerNumber));
            
         }
+
+      
 
         /// <summary>
         /// Code to update the details of a customer that has already been added
@@ -195,6 +197,8 @@ namespace Home
             }
             Customer newCustomer = new Customer(customerNumber, custType, firstName, lastName, contactNumber);
             CustomersList.Add(newCustomer);
+            
+           
         }
 
         /// <summary>
@@ -279,6 +283,7 @@ namespace Home
         /// <returns>Returns the accounts related to the customer number of a customer</returns>
         public List<Accounts> GetCustomerAccounts(int customerNumber)
         {
+            ReadAccountsData();
             CorrespondingAccounts.Clear();
 
             foreach (Accounts acc in customerAccounts)
@@ -344,20 +349,23 @@ namespace Home
             
             if (accountType == "Omni")
             {
-                Omni newOmni = new Omni(customerNumber, setAccountID(customerNumber));
+                Omni newOmni = new Omni(customerNumber, setAccountID(customerNumber, accountType));
                 customerAccounts.Add(newOmni);
+                WriteAccountsBinaryData();
             }
             else if (accountType == "Investment")
             {
-                Investment newInvest = new Investment(customerNumber, setAccountID(customerNumber));
+                Investment newInvest = new Investment(customerNumber, setAccountID(customerNumber, accountType));
                 customerAccounts.Add(newInvest);
+                WriteAccountsBinaryData();
             }
             else if (accountType == "Everyday")
             {
-                Everyday newEveryday = new Everyday(customerNumber, setAccountID(customerNumber));
+                Everyday newEveryday = new Everyday(customerNumber, setAccountID(customerNumber, accountType));
                 customerAccounts.Add(newEveryday);
+                WriteAccountsBinaryData();
             }
-            WriteAccountsBinaryData();
+            
             
         }
 

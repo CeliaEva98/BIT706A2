@@ -32,8 +32,8 @@ namespace Home
             InitializeComponent();
             labelError.Text = "";
             labelCustDetails.Text = "";
-            control.ReadCustomerBinaryData();
-            control.ReadAccountsBinaryData();
+            control.ReadCustomerData();
+            control.ReadAccountsData();
             
         }
 
@@ -284,7 +284,7 @@ namespace Home
                 }
                 else
                 {
-                    labelError.Text = "Please only entered numbers for the ID. Please try again.";
+                    labelError.Text = "Please only enter numbers for the ID. Please try again.";
                     textBoxEnteredID.Text = "";
                 }
                 

@@ -7,21 +7,22 @@ using System.Threading.Tasks;
 namespace Home
 {
     [Serializable]
-    class Customer
+    public class Customer
     {
         int customerID;
         String customerFirstName;
         String customerLastName;
         long customerContactNum;
         String custType;
-        public IFeesStrategy myFeesStrategy;
+        [NonSerialized] public IFeesStrategy myFeesStrategy;
         
         
         public Customer()
         {
 
         }
-
+        
+        
         public void SetFeesStrategy(IFeesStrategy newStrategy)
         {
             myFeesStrategy = newStrategy;

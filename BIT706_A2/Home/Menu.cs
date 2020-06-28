@@ -25,8 +25,7 @@ namespace Home
         {
             InitializeComponent();
             labelDisplay.Text = "";
-            control.ReadAccountsBinaryData();
-            control.ReadCustomerBinaryData();
+            control.ReadCustomerData();
 
         }
 

@@ -21,8 +21,8 @@ namespace Home
         {
             InitializeComponent();
             labelError.Text = "";
-            control.ReadCustomerBinaryData();
-            control.ReadAccountsBinaryData();
+            control.ReadCustomerData();
+            control.ReadAccountsData();
         }
 
         private void checkBoxOmni_CheckedChanged(object sender, EventArgs e)

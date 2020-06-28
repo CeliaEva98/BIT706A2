@@ -71,6 +71,115 @@ references:
   isSpec: "True"
   fullName: Home.AddCustomer.Dispose
   nameWithType: AddCustomer.Dispose
+- uid: Home.Customer
+  name: Customer
+  href: api/Home.Customer.html
+  commentId: T:Home.Customer
+  fullName: Home.Customer
+  nameWithType: Customer
+- uid: Home.Customer.#ctor
+  name: Customer()
+  href: api/Home.Customer.html#Home_Customer__ctor
+  commentId: M:Home.Customer.#ctor
+  fullName: Home.Customer.Customer()
+  nameWithType: Customer.Customer()
+- uid: Home.Customer.#ctor(System.Int32,System.String,System.String,System.String,System.Int64)
+  name: Customer(Int32, String, String, String, Int64)
+  href: api/Home.Customer.html#Home_Customer__ctor_System_Int32_System_String_System_String_System_String_System_Int64_
+  commentId: M:Home.Customer.#ctor(System.Int32,System.String,System.String,System.String,System.Int64)
+  fullName: Home.Customer.Customer(System.Int32, System.String, System.String, System.String, System.Int64)
+  nameWithType: Customer.Customer(Int32, String, String, String, Int64)
+- uid: Home.Customer.#ctor*
+  name: Customer
+  href: api/Home.Customer.html#Home_Customer__ctor_
+  commentId: Overload:Home.Customer.#ctor
+  isSpec: "True"
+  fullName: Home.Customer.Customer
+  nameWithType: Customer.Customer
+- uid: Home.Customer.contactNum
+  name: contactNum
+  href: api/Home.Customer.html#Home_Customer_contactNum
+  commentId: P:Home.Customer.contactNum
+  fullName: Home.Customer.contactNum
+  nameWithType: Customer.contactNum
+- uid: Home.Customer.contactNum*
+  name: contactNum
+  href: api/Home.Customer.html#Home_Customer_contactNum_
+  commentId: Overload:Home.Customer.contactNum
+  isSpec: "True"
+  fullName: Home.Customer.contactNum
+  nameWithType: Customer.contactNum
+- uid: Home.Customer.customerType
+  name: customerType
+  href: api/Home.Customer.html#Home_Customer_customerType
+  commentId: P:Home.Customer.customerType
+  fullName: Home.Customer.customerType
+  nameWithType: Customer.customerType
+- uid: Home.Customer.customerType*
+  name: customerType
+  href: api/Home.Customer.html#Home_Customer_customerType_
+  commentId: Overload:Home.Customer.customerType
+  isSpec: "True"
+  fullName: Home.Customer.customerType
+  nameWithType: Customer.customerType
+- uid: Home.Customer.firstName
+  name: firstName
+  href: api/Home.Customer.html#Home_Customer_firstName
+  commentId: P:Home.Customer.firstName
+  fullName: Home.Customer.firstName
+  nameWithType: Customer.firstName
+- uid: Home.Customer.firstName*
+  name: firstName
+  href: api/Home.Customer.html#Home_Customer_firstName_
+  commentId: Overload:Home.Customer.firstName
+  isSpec: "True"
+  fullName: Home.Customer.firstName
+  nameWithType: Customer.firstName
+- uid: Home.Customer.ID
+  name: ID
+  href: api/Home.Customer.html#Home_Customer_ID
+  commentId: P:Home.Customer.ID
+  fullName: Home.Customer.ID
+  nameWithType: Customer.ID
+- uid: Home.Customer.ID*
+  name: ID
+  href: api/Home.Customer.html#Home_Customer_ID_
+  commentId: Overload:Home.Customer.ID
+  isSpec: "True"
+  fullName: Home.Customer.ID
+  nameWithType: Customer.ID
+- uid: Home.Customer.lastName
+  name: lastName
+  href: api/Home.Customer.html#Home_Customer_lastName
+  commentId: P:Home.Customer.lastName
+  fullName: Home.Customer.lastName
+  nameWithType: Customer.lastName
+- uid: Home.Customer.lastName*
+  name: lastName
+  href: api/Home.Customer.html#Home_Customer_lastName_
+  commentId: Overload:Home.Customer.lastName
+  isSpec: "True"
+  fullName: Home.Customer.lastName
+  nameWithType: Customer.lastName
+- uid: Home.Customer.myFeesStrategy
+  name: myFeesStrategy
+  href: api/Home.Customer.html#Home_Customer_myFeesStrategy
+  commentId: F:Home.Customer.myFeesStrategy
+  fullName: Home.Customer.myFeesStrategy
+  nameWithType: Customer.myFeesStrategy
+- uid: Home.Customer.SetFeesStrategy(Home.IFeesStrategy)
+  name: SetFeesStrategy(IFeesStrategy)
+  href: api/Home.Customer.html#Home_Customer_SetFeesStrategy_Home_IFeesStrategy_
+  commentId: M:Home.Customer.SetFeesStrategy(Home.IFeesStrategy)
+  fullName: Home.Customer.SetFeesStrategy(Home.IFeesStrategy)
+  nameWithType: Customer.SetFeesStrategy(IFeesStrategy)
+- uid: Home.Customer.SetFeesStrategy*
+  name: SetFeesStrategy
+  href: api/Home.Customer.html#Home_Customer_SetFeesStrategy_
+  commentId: Overload:Home.Customer.SetFeesStrategy
+  isSpec: "True"
+  fullName: Home.Customer.SetFeesStrategy
+  nameWithType: Customer.SetFeesStrategy
 - uid: Home.EditCustomer
   name: EditCustomer
   href: api/Home.EditCustomer.html
@@ -116,6 +225,19 @@ references:
   isSpec: "True"
   fullName: Home.EditCustomer.setContactNum
   nameWithType: EditCustomer.setContactNum
+- uid: Home.EditCustomer.setCustType(System.String)
+  name: setCustType(String)
+  href: api/Home.EditCustomer.html#Home_EditCustomer_setCustType_System_String_
+  commentId: M:Home.EditCustomer.setCustType(System.String)
+  fullName: Home.EditCustomer.setCustType(System.String)
+  nameWithType: EditCustomer.setCustType(String)
+- uid: Home.EditCustomer.setCustType*
+  name: setCustType
+  href: api/Home.EditCustomer.html#Home_EditCustomer_setCustType_
+  commentId: Overload:Home.EditCustomer.setCustType
+  isSpec: "True"
+  fullName: Home.EditCustomer.setCustType
+  nameWithType: EditCustomer.setCustType
 - uid: Home.EditCustomer.setFirstName(System.String)
   name: setFirstName(String)
   href: api/Home.EditCustomer.html#Home_EditCustomer_setFirstName_System_String_
@@ -187,6 +309,25 @@ references:
   isSpec: "True"
   fullName: Home.Home.Dispose
   nameWithType: Home.Dispose
+- uid: Home.IFeesStrategy
+  name: IFeesStrategy
+  href: api/Home.IFeesStrategy.html
+  commentId: T:Home.IFeesStrategy
+  fullName: Home.IFeesStrategy
+  nameWithType: IFeesStrategy
+- uid: Home.IFeesStrategy.CalcFine
+  name: CalcFine()
+  href: api/Home.IFeesStrategy.html#Home_IFeesStrategy_CalcFine
+  commentId: M:Home.IFeesStrategy.CalcFine
+  fullName: Home.IFeesStrategy.CalcFine()
+  nameWithType: IFeesStrategy.CalcFine()
+- uid: Home.IFeesStrategy.CalcFine*
+  name: CalcFine
+  href: api/Home.IFeesStrategy.html#Home_IFeesStrategy_CalcFine_
+  commentId: Overload:Home.IFeesStrategy.CalcFine
+  isSpec: "True"
+  fullName: Home.IFeesStrategy.CalcFine
+  nameWithType: IFeesStrategy.CalcFine
 - uid: Home.ManageAccounts
   name: ManageAccounts
   href: api/Home.ManageAccounts.html

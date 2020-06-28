@@ -7,9 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
+
 
 namespace Home
 {
@@ -20,11 +18,10 @@ namespace Home
 
         public Home()
         {
-            control.ReadAccountsBinaryData();
-            control.ReadCustomerBinaryData();
+            control.WriteAccountsBinaryData();
+            control.ReadAccountsData();
+            control.ReadCustomerData();
             InitializeComponent();
-            
-            
             
         }
 
