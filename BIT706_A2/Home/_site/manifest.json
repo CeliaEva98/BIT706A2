@@ -57,10 +57,10 @@
       "output": {
         ".html": {
           "relative_path": "api/Home.Accounts.html",
-          "hash": "hc92Qbb+3Zf7xOw4kVKf8Q=="
+          "hash": "EaDeBoTHiCPdNcMR6+XoUQ=="
         }
       },
-      "is_incremental": true,
+      "is_incremental": false,
       "version": ""
     },
     {
@@ -96,7 +96,7 @@
           "hash": "MHIgSWsNgDgaX3POp0T+bw=="
         }
       },
-      "is_incremental": false,
+      "is_incremental": true,
       "version": ""
     },
     {
